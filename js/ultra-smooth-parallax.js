@@ -109,22 +109,22 @@ const ULTRA_SMOOTH_CONFIG = {
 };
 
 // 设置背景的函数
-function setBackground(sectionId,bg) {
-  const config = backgroundConfigs[sectionId];
+function setBackground(sectionId, bg) {
+    const config = backgroundConfigs[sectionId];
 
-  if (config) {
-    if (config.backgroundImage) {
-      bg.style.backgroundImage = config.backgroundImage;
-      bg.style.backgroundSize = 'cover';
-      bg.style.backgroundPosition = 'center';
+    if (config) {
+        if (config.backgroundImage) {
+            bg.style.backgroundImage = config.backgroundImage;
+            bg.style.backgroundSize = 'cover';
+            bg.style.backgroundPosition = 'center';
+        }
+        if (config.backgroundColor) {
+            bg.style.backgroundColor = config.backgroundColor;
+        }
+    } else {
+        console.warn(`未找到 section "${sectionId}" 的背景配置，使用默认黑色背景`);
+        bg.style.backgroundColor = '#000';
     }
-    if (config.backgroundColor) {
-      bg.style.backgroundColor = config.backgroundColor;
-    }
-  } else {
-    console.warn(`未找到 section "${sectionId}" 的背景配置，使用默认黑色背景`);
-    bg.style.backgroundColor = '#000';
-  }
 }
 
 
@@ -137,7 +137,7 @@ function initUltraSmoothParallax() {
     document.body.style.webkitUserSelect = 'none';
     document.body.style.mozUserSelect = 'none';
     document.body.style.msUserSelect = 'none';
-    
+
     // 注册GSAP插件
     gsap.registerPlugin(ScrollTrigger);
 
@@ -213,18 +213,10 @@ function initUltraSmoothParallax() {
             // 创建主背景层
             const bg = document.createElement('div');
             bg.className = 'parallax-bg';
-            bg.style.position = 'absolute';
-            bg.style.width = '100vw'; // 使用视口宽度
-            bg.style.height = '110vh'; // 略微增加高度以允许视差效果
-            bg.style.left = '0'; // 从页面最左侧开始
-            bg.style.top = '-5vh'; // 轻微上移以便于视差效果
-            bg.style.zIndex = '-1';
-            bg.style.transformOrigin = 'center center';
             bg.style.willChange = 'transform';
-            bg.style.pointerEvents = 'none'
 
             // 设置背景图片
-            setBackground(sectionId,bg)
+            // setBackground(sectionId,bg)
 
 
             // 设置背景图片样式
@@ -323,7 +315,7 @@ function initUltraSmoothParallax() {
         progressContainer.style.flexDirection = 'column';
         progressContainer.style.alignItems = 'center';
         progressContainer.style.gap = '10px';
-        
+
         // 默认显示或隐藏指示器，基于配置
         if (!ULTRA_SMOOTH_CONFIG.controls.showProgressIndicator) {
             progressContainer.style.display = 'none';
@@ -335,7 +327,7 @@ function initUltraSmoothParallax() {
             'active': '#fff',                   // 当前活动项为纯白色
             'home': '#64ffda',                  // 首页颜色
             'chronology': '#ff7e79',            // chronology类别颜色
-            'accounting': '#7986cb',            // accounting类别颜色
+            'accounting': '#ff5410ff',            // accounting类别颜色
             'compiled': '#ffb74d'               // compiled类别颜色
         };
 
@@ -343,7 +335,7 @@ function initUltraSmoothParallax() {
         const currentSection = sections[currentSectionIndex];
         const currentSectionId = currentSection.id;
         const currentSectionClass = currentSection.className;
-        
+
         // 确定当前section的类别
         let currentCategory = 'default';
         if (currentSectionId === 'home') {
@@ -362,15 +354,15 @@ function initUltraSmoothParallax() {
             dot.className = 'progress-dot';
             dot.dataset.index = index;
             dot.dataset.section = section.id || section.className;
-            dot.style.width = '3px';
-            dot.style.height = '3px';
+            dot.style.width = '5px';
+            dot.style.height = '5px';
             dot.style.borderRadius = '50%';
-            
+
             // 确定点的颜色类别
             let dotCategory = 'default';
             const sectionId = section.id;
             const sectionClass = section.className;
-            
+
             if (sectionId === 'home') {
                 dotCategory = 'home';
             } else if (sectionClass && sectionClass.includes('chronology')) {
@@ -380,17 +372,17 @@ function initUltraSmoothParallax() {
             } else if (sectionId === 'compiled') {
                 dotCategory = 'compiled';
             }
-            
+
             // 默认所有点为白色
             let dotColor = sectionColors.default;
             let dotOpacity = 0.7;
-            
+
             // 如果点所属类别与当前section类别相同，则使用该类别的颜色
             if (dotCategory === currentCategory) {
                 dotColor = sectionColors[currentCategory];
                 dotOpacity = 0.8;
             }
-            
+
             // 设置点的样式
             if (index === currentSectionIndex) {
                 // 当前活动的点
@@ -405,7 +397,7 @@ function initUltraSmoothParallax() {
                 dot.style.transform = 'scale(1)';
                 dot.style.boxShadow = 'none';
             }
-            
+
             dot.style.transition = 'all 0.3s ease';
             dot.style.cursor = 'pointer';
 
@@ -430,22 +422,22 @@ function initUltraSmoothParallax() {
     function updateProgressIndicator() {
         const dots = document.querySelectorAll('.progress-dot');
         if (!dots.length) return;
-        
+
         // 定义不同类别section的颜色
         const sectionColors = {
             'default': 'rgba(255,255,255,0.7)', // 默认为白色半透明
             'active': '#fff',                   // 当前活动项为纯白色
             'home': '#64ffda',                  // 首页颜色
-            'chronology': '#ff7e79',            // chronology类别颜色
-            'accounting': '#7986cb',            // accounting类别颜色
+            'chronology': '#ff312aff',            // chronology类别颜色
+            'accounting': '#00ffd0ff',            // accounting类别颜色
             'compiled': '#ffb74d'               // compiled类别颜色
         };
-        
+
         // 获取当前section的类别
         const currentSection = sections[currentSectionIndex];
         const currentSectionId = currentSection.id;
         const currentSectionClass = currentSection.className;
-        
+
         // 确定当前section的类别
         let currentCategory = 'default';
         if (currentSectionId === 'home') {
@@ -457,14 +449,14 @@ function initUltraSmoothParallax() {
         } else if (currentSectionId === 'compiled') {
             currentCategory = 'compiled';
         }
-        
+
         // 根据类别颜色更新所有点
         dots.forEach((dot, index) => {
             // 获取这个点对应的section
             const dotSection = sections[index];
             const dotSectionId = dotSection.id;
             const dotSectionClass = dotSection.className;
-            
+
             // 确定这个点对应section的类别
             let dotCategory = 'default';
             if (dotSectionId === 'home') {
@@ -476,17 +468,17 @@ function initUltraSmoothParallax() {
             } else if (dotSectionId === 'compiled') {
                 dotCategory = 'compiled';
             }
-            
+
             // 默认所有点为白色
             let dotColor = sectionColors.default;
             let dotOpacity = 0.7;
-            
+
             // 如果点所属类别与当前section类别相同，则使用该类别的颜色
             if (dotCategory === currentCategory) {
                 dotColor = sectionColors[currentCategory];
                 dotOpacity = 0.8;
             }
-            
+
             // 设置点的样式
             if (index === currentSectionIndex) {
                 // 当前活动的点 - 白色高亮
@@ -503,14 +495,14 @@ function initUltraSmoothParallax() {
             }
         });
     }
-    
+
     /**
      * 切换进度指示器显示/隐藏
      */
     function toggleProgressIndicator() {
         const indicator = document.querySelector('.page-progress-indicator');
         if (!indicator) return;
-        
+
         if (indicator.style.display === 'none') {
             indicator.style.display = 'flex';
             console.log('显示页数指示器');
@@ -526,49 +518,49 @@ function initUltraSmoothParallax() {
     function finishNavigationAnimation(targetIndex) {
         const targetSection = sections[targetIndex];
         const targetId = targetSection.id || targetSection.className;
-        
+
         // 获取目标section的类名
         const targetClassName = targetSection.className;
-        
+
         // 移除所有临时动画类
         navLinks.forEach(link => {
             link.classList.remove('animating-in', 'animating-out');
         });
-        
+
         // 获取当前活跃的导航链接
         const prevActiveLink = document.querySelector('.nav-list a.active');
-        
+
         // 检查是否在同一类别的section之间切换
         if (prevActiveLink) {
             const prevActiveLinkHref = prevActiveLink.getAttribute('href').substring(1); // 去掉#
-            const prevActiveSection = Array.from(sections).find(section => 
+            const prevActiveSection = Array.from(sections).find(section =>
                 (section.id || section.className) === prevActiveLinkHref
             );
-            
+
             // 如果上一个section和当前section都是同一个类别，保持相同的active链接
-            if (prevActiveSection && prevActiveSection.className && 
+            if (prevActiveSection && prevActiveSection.className &&
                 targetClassName && prevActiveSection.className === targetClassName) {
                 console.log(`保持相同的active链接，section类别: ${targetClassName}`);
                 return; // 保持当前active状态不变
             }
         }
-        
+
         // 如果是不同类别的section之间切换，找到目标导航链接并设置为active
         let targetLink = null;
-        
+
         // 首先尝试精确匹配ID
         targetLink = Array.from(navLinks).find(link => link.getAttribute('href') === `#${targetId}`);
-        
+
         // 如果没有精确匹配，则尝试匹配类别
         // 这对于从其他section回到chronology section特别重要
         if (!targetLink && targetClassName) {
             // 查找导航中指向该类别的第一个链接
             for (const link of navLinks) {
                 const linkHref = link.getAttribute('href').substring(1); // 去掉#
-                const linkedSection = Array.from(sections).find(section => 
+                const linkedSection = Array.from(sections).find(section =>
                     (section.id || section.className) === linkHref
                 );
-                
+
                 if (linkedSection && linkedSection.className === targetClassName) {
                     targetLink = link;
                     console.log(`找到匹配类别的链接: ${linkHref} 对应类别: ${targetClassName}`);
@@ -576,7 +568,7 @@ function initUltraSmoothParallax() {
                 }
             }
         }
-        
+
         if (targetLink) {
             // 移除所有链接的active类
             navLinks.forEach(link => {
@@ -601,47 +593,47 @@ function initUltraSmoothParallax() {
         const activeSection = sections[activeIndex];
         const activeId = activeSection.id || activeSection.className;
         const activeClass = activeSection.className;
-        
+
         // 获取当前活跃的导航链接
         const prevActiveLink = document.querySelector('.nav-list a.active');
-        
+
         // 检查是否在同一类别的section之间切换
         if (prevActiveLink) {
             const prevActiveLinkHref = prevActiveLink.getAttribute('href').substring(1); // 去掉#
-            const prevActiveSection = Array.from(sections).find(section => 
+            const prevActiveSection = Array.from(sections).find(section =>
                 (section.id || section.className) === prevActiveLinkHref
             );
-            
+
             // 如果上一个section和当前section都是同一个类别，保持相同的active链接
-            if (prevActiveSection && prevActiveSection.className && 
+            if (prevActiveSection && prevActiveSection.className &&
                 activeClass && prevActiveSection.className === activeClass) {
                 console.log(`保持相同的active链接，section类别: ${activeClass}`);
-                
+
                 // 移除动画类，保持active状态
                 navLinks.forEach(link => {
                     link.classList.remove('animating-in', 'animating-out');
                 });
-                
+
                 // 更新进度指示器
                 if (ULTRA_SMOOTH_CONFIG.controls.showProgressIndicator) {
                     updateProgressIndicator();
                 }
-                
+
                 return;
             }
         }
 
         // 尝试找到精确匹配的导航链接
         let activeLink = Array.from(navLinks).find(link => link.getAttribute('href') === `#${activeId}`);
-        
+
         // 如果没有找到精确匹配，尝试找到匹配类别的链接
         if (!activeLink && activeClass) {
             for (const link of navLinks) {
                 const linkHref = link.getAttribute('href').substring(1); // 去掉#
-                const linkedSection = Array.from(sections).find(section => 
+                const linkedSection = Array.from(sections).find(section =>
                     (section.id || section.className) === linkHref
                 );
-                
+
                 if (linkedSection && linkedSection.className === activeClass) {
                     activeLink = link;
                     console.log(`找到匹配类别的链接: ${linkHref} 对应类别: ${activeClass}`);
@@ -649,7 +641,7 @@ function initUltraSmoothParallax() {
                 }
             }
         }
-        
+
         // 更新导航项激活状态
         navLinks.forEach(link => {
             // 移除所有过渡动画类
@@ -657,7 +649,7 @@ function initUltraSmoothParallax() {
             // 移除所有active类
             link.classList.remove('active');
         });
-        
+
         // 如果找到了匹配的链接，设置为active
         if (activeLink) {
             activeLink.classList.add('active');
@@ -684,36 +676,36 @@ function initUltraSmoothParallax() {
 
         const prevSection = sections[prevIndex];
         const targetSection = sections[targetIndex];
-        
+
         // 获取section ID
         const prevId = prevSection.id || prevSection.className;
         const targetId = targetSection.id || targetSection.className;
-        
+
         // 获取section类名
         const prevClass = prevSection.className;
         const targetClass = targetSection.className;
-        
+
         // 如果两个section都属于同一个类别，跳过下划线动画
         if (prevClass && targetClass && prevClass === targetClass) {
             console.log(`Section ${prevId} 和 ${targetId} 属于同一类别 (${prevClass})，跳过下划线动画`);
             return;
         }
-        
+
         console.log("prevId", prevId);
         console.log("targetId", targetId);
 
         // 找到对应的导航链接
         let prevLink = Array.from(navLinks).find(link => link.getAttribute('href') === `#${prevId}`);
         let targetLink = Array.from(navLinks).find(link => link.getAttribute('href') === `#${targetId}`);
-        
+
         // 如果没有找到精确匹配的链接，尝试找到匹配类别的链接
         if (!prevLink && prevClass) {
             for (const link of navLinks) {
                 const linkHref = link.getAttribute('href').substring(1); // 去掉#
-                const linkedSection = Array.from(sections).find(section => 
+                const linkedSection = Array.from(sections).find(section =>
                     (section.id || section.className) === linkHref
                 );
-                
+
                 if (linkedSection && linkedSection.className === prevClass) {
                     prevLink = link;
                     console.log(`为前一个section找到匹配类别的链接: ${linkHref}`);
@@ -721,14 +713,14 @@ function initUltraSmoothParallax() {
                 }
             }
         }
-        
+
         if (!targetLink && targetClass) {
             for (const link of navLinks) {
                 const linkHref = link.getAttribute('href').substring(1); // 去掉#
-                const linkedSection = Array.from(sections).find(section => 
+                const linkedSection = Array.from(sections).find(section =>
                     (section.id || section.className) === linkHref
                 );
-                
+
                 if (linkedSection && linkedSection.className === targetClass) {
                     targetLink = link;
                     console.log(`为目标section找到匹配类别的链接: ${linkHref}`);
@@ -796,16 +788,16 @@ function initUltraSmoothParallax() {
         // 保存原索引和更新当前索引
         const prevIndex = currentSectionIndex;
         currentSectionIndex = targetIndex;
-        
+
         // 触发section切换事件
-        window.dispatchEvent(new CustomEvent('sectionChange', { 
-            detail: { 
-                prevIndex, 
+        window.dispatchEvent(new CustomEvent('sectionChange', {
+            detail: {
+                prevIndex,
                 currentIndex: targetIndex,
                 direction,
                 prevSection: sections[prevIndex],
                 currentSection: sections[targetIndex]
-            } 
+            }
         }));
 
         // 检测是否是循环滚动情况（最后一个→第一个或第一个→最后一个）
@@ -1002,19 +994,19 @@ function initUltraSmoothParallax() {
         let mouseStartY = 0;
         let mouseMoveThreshold = 100; // 鼠标移动阈值（像素）
         let userSelectStyle = '';
-        
+
         // 禁用文本选择
         function disableTextSelection() {
             // 保存原始用户选择样式
             userSelectStyle = document.body.style.userSelect;
-            
+
             // 禁用文本选择
             document.body.style.userSelect = 'none';
             document.body.style.webkitUserSelect = 'none';
             document.body.style.mozUserSelect = 'none';
             document.body.style.msUserSelect = 'none';
         }
-        
+
         // 恢复文本选择
         function enableTextSelection() {
             // 恢复原始用户选择样式
@@ -1023,7 +1015,7 @@ function initUltraSmoothParallax() {
             document.body.style.mozUserSelect = userSelectStyle;
             document.body.style.msUserSelect = userSelectStyle;
         }
-        
+
         // 鼠标按下时记录起始位置
         window.addEventListener('mousedown', (e) => {
             isDragging = true;
@@ -1031,42 +1023,42 @@ function initUltraSmoothParallax() {
             document.body.style.cursor = 'grabbing'; // 改变鼠标指针样式
             disableTextSelection(); // 禁用文本选择
         });
-        
+
         // 鼠标移动时检测拖动距离和方向
         window.addEventListener('mousemove', (e) => {
             if (!isDragging || isAnimating) return;
-            
+
             const currentY = e.clientY;
             const deltaY = currentY - mouseStartY;
-            
+
             // 如果移动距离超过阈值，触发section切换
             if (Math.abs(deltaY) > mouseMoveThreshold) {
                 isDragging = false;
                 document.body.style.cursor = ''; // 恢复鼠标指针样式
                 enableTextSelection(); // 恢复文本选择
-                
+
                 // 确定方向并计算目标索引
                 const direction = deltaY < 0 ? 'down' : 'up';
                 let targetIndex;
-                
+
                 if (direction === 'down') {
                     targetIndex = (currentSectionIndex + 1) % totalSections;
                 } else {
                     targetIndex = (currentSectionIndex - 1 + totalSections) % totalSections;
                 }
-                
+
                 // 执行滚动
                 scrollToSection(targetIndex, direction);
             }
         });
-        
+
         // 鼠标松开时重置状态
         window.addEventListener('mouseup', () => {
             isDragging = false;
             document.body.style.cursor = ''; // 恢复鼠标指针样式
             enableTextSelection(); // 恢复文本选择
         });
-        
+
         // 鼠标离开窗口时重置状态
         window.addEventListener('mouseleave', () => {
             isDragging = false;
@@ -1173,13 +1165,13 @@ function initUltraSmoothParallax() {
                 }
             });
         }
-        
+
         // 自定义滚动事件 - 用于滑动"新"行文本返回首页功能
         window.addEventListener('scrollToSection', (e) => {
             if (isAnimating) return;
-            
+
             const targetIndex = e.detail.targetIndex;
-            
+
             if (targetIndex !== -1 && targetIndex !== currentSectionIndex) {
                 const direction = targetIndex > currentSectionIndex ? 'down' : 'up';
                 scrollToSection(targetIndex, direction);
@@ -1208,7 +1200,7 @@ function initUltraSmoothParallax() {
                 });
             }, 200);
         });
-        
+
         // 添加Ctrl+Shift+D快捷键监听器
         document.addEventListener('keydown', (e) => {
             // 防止与浏览器快捷键冲突

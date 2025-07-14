@@ -207,23 +207,70 @@ section {
     pointer-events: none;
 }
 
-#home .section-bg {
+.parallax-bg{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: -5vh;
+    z-index: -1;
+    transform-origin: center center;
+    pointer-events: none;
+}
+
+#home .parallax-bg {
     background-image: var(--bg-index);
 }
 
-#circumstances .section-bg {
-    background-image: var(--bg-circumstances);
+#circumstances .parallax-bg {
+    background-color: rgba(0, 0, 0, 1);
 }
 
-#chronology .section-bg {
-    background-image: var(--bg-chronology);
+#chronology-bydch .parallax-bg {
+    background-image: var(--bg-chronology-bydch);
 }
 
-#accounting .section-bg {
+#chronology-cdz .parallax-bg {
+    background-image: var(--bg-chronology-cdz);
+}
+
+#chronology-hl .parallax-bg {
+    background-image: var(--bg-chronology-hl);
+}
+
+#chronology-dm .parallax-bg {
+    background-image: var(--bg-chronology-dm);
+}
+
+#chronology-qcsc .parallax-bg {
+    background-image: var(--bg-chronology-qcsc);
+}
+
+#chronology-sjb .parallax-bg {
+    background-image: var(--bg-chronology-sjb);
+}
+
+#chronology-mnhcz .parallax-bg {
+    background-image: var(--bg-chronology-mnhcz);
+}
+
+#chronology-xylqyys .parallax-bg {
+    background-image: var(--bg-chronology-xylqyys);
+}
+
+#chronology-omwyh .parallax-bg {
+    background-image: var(--bg-chronology-omwyh);
+}
+
+#chronology-ydl .parallax-bg {
+    background-image: var(--bg-chronology-ydl);
+}
+
+#accounting .parallax-bg {
     background-image: var(--bg-accounting);
 }
 
-#compiled .section-bg {
+#compiled .parallax-bg {
     background-image: var(--bg-compiled);
 }
 
@@ -244,4 +291,3 @@ section {
     background-color: #fff !important;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
 }
-
