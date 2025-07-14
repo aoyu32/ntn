@@ -218,7 +218,7 @@ section {
     pointer-events: none;
 }
 
-#home .parallax-bg {
+/* #home .parallax-bg {
     background-image: var(--bg-index);
 }
 
@@ -272,7 +272,7 @@ section {
 
 #compiled .parallax-bg {
     background-image: var(--bg-compiled);
-}
+} */
 
 .parallax-bg-container,
 .parallax-bg {

@@ -216,7 +216,7 @@ function initUltraSmoothParallax() {
             bg.style.willChange = 'transform';
 
             // 设置背景图片
-            // setBackground(sectionId,bg)
+            setBackground(sectionId,bg)
 
 
             // 设置背景图片样式
