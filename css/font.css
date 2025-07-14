@@ -1,0 +1,16 @@
+@font-face {
+  font-family: 'HanaMinA';
+  src: url("../assets/font/HanaMinA.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'HarmonyOS Sans SC';
+  src: url('../assets/font/HarmonyOS_Sans_SC_Light.ttf') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  src: url('../assets/font/Quicksand.ttf') format('truetype');
+  font-style: normal;
+}

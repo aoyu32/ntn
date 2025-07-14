@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/font.css">
+    <link rel="stylesheet" href="./css/chronology.css">
+    <link rel="stylesheet" href="./css/circumstances.css">
+    <link rel="stylesheet" href="./css/compiled.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>新行记</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 导航栏 -->
+        <div class="nav">
+            <div class="logo-name">
+                <a href="#home">新行记</a>
+            </div>
+            <div class="nav-list">
+                <ul>
+                    <li v-for="(item,index) in navList" :key="index"><a :href="item.point">{{item.name}}</a></li>
+                </ul>
+            </div>
+            <div class="nav-bottom">
+            </div>
+        </div>
+
+        <div class="main">
+            <section id="home">
+                <div class="section-content">
+                    <div class="content-wrapper">
+                        <div class="en-text">
+                            <p>Of all treasures to cherish</p>
+                            <p>none surpass</p>
+                            <p>the promise of tommorrow</p>
+                        </div>
+                        <div class="ch-text">
+                            <p>万珍易取 明日难求</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="circumstances">
+                <div class="section-content">
+                    <div class="content-wrapper">
+                        <div class="wrapper-left">
+                            <div class="world-map">
+                                <p>瑞典</p>
+                                <span>Sweden</span>
+                            </div>
+                        </div>
+                        <div class="wrapper-right">
+                            <div class="national-map">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="chronology-bydch" class="chronology">
+                <div class="pull-down">
+                    <div class="pull-down-icon">
+                        <div class="dot">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="icon">
+                            <svg t="1752293042486" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" p-id="5488" width="20" height="20">
+                                <path
+                                    d="M232.096 389.248a32 32 0 0 1 44.96-45.344l2.88 2.848L512 607.84l232.096-261.12a32 32 0 0 1 41.984-5.12l3.2 2.496a32 32 0 0 1 5.12 41.984l-2.496 3.2-256 288a32 32 0 0 1-44.96 2.816l-2.88-2.848-256-288z"
+                                    fill="#ffffff" p-id="5489"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="pull-down-text">
+                        <div class="date">
+                            <p>6/2021</p>
+                        </div>
+                        <div class="button">
+                            <p>下拉查询政策</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pull-down-content">
+                    <ul>
+                        <li>【新】《新能源汽车推广应用财政补贴政策》生效。符合标准的车型将根据续航里程、电池能量密度等指标获得财政补贴。其中，续航超400公里的车型享有最高补贴。</li>
+                        <li>【新】依据《新能源汽车产业发展规划(2021—2035年)》，计划到2025年新能源汽车销量占比达到新车总销量的20%，并在接下来的十年中持续提升。鼓励新能源汽车品牌深化研发布局，提升产业基础能力和国际竞争力。
+                        </li>
+                        <li>【新】欧盟：为加速清洁交通系统建设，进口新能源汽车需符合新颁气候法中温室气体排放标准，每公里平均排放CO2不得超过130克。</li>
+                        <li>【新】欧盟：自即日起，进口商需提供额外文件证明产品未接受不公平补贴。</li>
+                        <li>【新】欧盟：所有新进口的纯电及混合动力汽车必须配备AVAS，确保符合行人安全要求。</li>
+                        <a>点击查看所有生效政策</a>
+                    </ul>
+                    <div class="pull-up">
+                        <div class="pull-up-icon">
+                            <div class="icon">
+                                <svg t="1752293042486" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" p-id="5488" width="20" height="20">
+                                    <path
+                                        d="M791.904 634.752a32 32 0 0 1-44.96 45.344l-2.88-2.848L512 416.16l-232.096 261.12a32 32 0 0 1-41.984 5.12l-3.2-2.496a32 32 0 0 1-5.12-41.984l2.496-3.2 256-288a32 32 0 0 1 44.96-2.816l2.88 2.848 256 288z"
+                                        fill="#ffffff" p-id="5489"></path>
+                                </svg>
+                            </div>
+                            <div class="dot">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-content">
+                    <div class="content-wrapper">
+                        <div class="wrapper-left">
+                            <div class="text">
+                                <p>比亚迪发450辆唐EV前往挪威</p>
+                                <p>至此中型纯电SUV出口达1000辆</p>
+                            </div>
+                        </div>
+                        <div class="wrapper-right">
+                            <div class="foreground">
+                                <img src="./assets/imgs/foreground/3-乘用车出海.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="chronology-cdz" class="chronology">
+                <div class="pull-down">
+                    <div class="pull-down-icon">
+                        <div class="dot">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="icon">
+                            <svg t="1752293042486" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" p-id="5488" width="20" height="20">
+                                <path
+                                    d="M232.096 389.248a32 32 0 0 1 44.96-45.344l2.88 2.848L512 607.84l232.096-261.12a32 32 0 0 1 41.984-5.12l3.2 2.496a32 32 0 0 1 5.12 41.984l-2.496 3.2-256 288a32 32 0 0 1-44.96 2.816l-2.88-2.848-256-288z"
+                                    fill="#ffffff" p-id="5489"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="pull-down-text">
+                        <div class="date">
+                            <p>3/2022</p>
+                        </div>
+                        <div class="button">
+                            <p>下拉查询政策</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pull-down-content">
+                    <ul>
+                        <li>【新】《2022年新能源汽车推广应用财政补贴政策》指出，对续航超过300公里且电池能量密度不低于125Wh/kg的车型加大补贴力度，补贴金额可达车辆售价的比例上限。</li>
+                        <li>【新】欧盟：新生产的新能源汽车每公里平均排放CO2不得超过95克。</li>
+                        <a>点击查看所有生效政策</a>
+                    </ul>
+                    <div class="pull-up">
+                        <div class="pull-up-icon">
+                            <div class="icon">
+                                <svg t="1752293042486" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" p-id="5488" width="20" height="20">
+                                    <path
+                                        d="M791.904 634.752a32 32 0 0 1-44.96 45.344l-2.88-2.848L512 416.16l-232.096 261.12a32 32 0 0 1-41.984 5.12l-3.2-2.496a32 32 0 0 1-5.12-41.984l2.496-3.2 256-288a32 32 0 0 1 44.96-2.816l2.88 2.848 256 288z"
+                                        fill="#ffffff" p-id="5489"></path>
+                                </svg>
+                            </div>
+                            <div class="dot">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-content">
+                    <div class="content-wrapper">
+                        <div class="wrapper-left">
+                            <div class="cards">
+                                <div class="card-item"><img src="./assets/imgs/svgs/card.svg" alt=""></div>
+                            </div>
+                            <div class="text">
+                                <p>比亚迪与壳牌签署全球战略合作协议,壳牌为比亚迪的个人和商业客户提供10万张会员充电卡,开放欧洲境内约30万个壳牌充电桩使用权</p>
+                            </div>
+                        </div>
+                        <div class="wrapper-right">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="chronology-hl" class="chronology">
+                <div class="pull-down">
+                    <div class="pull-down-icon">
+                        <div class="dot">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="icon">
+                            <svg t="1752293042486" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" p-id="5488" width="20" height="20">
+                                <path
+                                    d="M232.096 389.248a32 32 0 0 1 44.96-45.344l2.88 2.848L512 607.84l232.096-261.12a32 32 0 0 1 41.984-5.12l3.2 2.496a32 32 0 0 1 5.12 41.984l-2.496 3.2-256 288a32 32 0 0 1-44.96 2.816l-2.88-2.848-256-288z"
+                                    fill="#ffffff" p-id="5489"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="pull-down-text">
+                        <div class="date">
+                            <p>7/2022</p>
+                        </div>
+                        <div class="button">
+                            <p>下拉查询政策</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pull-down-content">
+                    <ul>
+                        <li>【新】欧盟：预计针对可能存在的不公平补贴问题展开调查，向进口新能源车起加征一定的反补贴税。</li>
+                        <a>点击查看所有生效政策</a>
+                    </ul>
+                    <div class="pull-up">
+                        <div class="pull-up-icon">
+                            <div class="icon">
+                                <svg t="1752293042486" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" p-id="5488" width="20" height="20">
+                                    <path
+                                        d="M791.904 634.752a32 32 0 0 1-44.96 45.344l-2.88-2.848L512 416.16l-232.096 261.12a32 32 0 0 1-41.984 5.12l-3.2-2.496a32 32 0 0 1-5.12-41.984l2.496-3.2 256-288a32 32 0 0 1 44.96-2.816l2.88 2.848 256 288z"
+                                        fill="#ffffff" p-id="5489"></path>
+                                </svg>
+                            </div>
+                            <div class="dot">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-content">
+                    <div class="content-wrapper">
+                        <div class="wrapper-left">
+
+                        </div>
+                        <div class="wrapper-right">
+                            <div class="louwman">
+                                <img src="./assets/imgs/foreground/5-企业logo.png" alt="">
+                            </div>
+                            <div class="text">
+                                <p>比亚迪与壳牌签署全球战略合作协议，壳牌为比亚迪的个人和商业客户提供10万张会员充电卡，开放欧洲境内约30万个壳牌充电桩使用权。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="chronology-dm" class="chronology">
+                <div class="pull-down">
+                    <div class="pull-down-icon">
+                        <div class="dot">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="icon">
+                            <svg t="1752293042486" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" p-id="5488" width="20" height="20">
+                                <path
+                                    d="M232.096 389.248a32 32 0 0 1 44.96-45.344l2.88 2.848L512 607.84l232.096-261.12a32 32 0 0 1 41.984-5.12l3.2 2.496a32 32 0 0 1 5.12 41.984l-2.496 3.2-256 288a32 32 0 0 1-44.96 2.816l-2.88-2.848-256-288z"
+                                    fill="#ffffff" p-id="5489"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="pull-down-text">
+                        <div class="date">
+                            <p>8/2022</p>
+                        </div>
+                        <div class="button">
+                            <p>下拉查询政策</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pull-down-content">
+                    <ul>
+                        <a>点击查看所有生效政策</a>
+                    </ul>
+                    <div class="pull-up">
+                        <div class="pull-up-icon">
+                            <div class="icon">
+                                <svg t="1752293042486" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" p-id="5488" width="20" height="20">
+                                    <path
+                                        d="M791.904 634.752a32 32 0 0 1-44.96 45.344l-2.88-2.848L512 416.16l-232.096 261.12a32 32 0 0 1-41.984 5.12l-3.2-2.496a32 32 0 0 1-5.12-41.984l2.496-3.2 256-288a32 32 0 0 1 44.96-2.816l2.88 2.848 256 288z"
+                                        fill="#ffffff" p-id="5489"></path>
+                                </svg>
+                            </div>
+                            <div class="dot">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-content">
+                    <div class="content-wrapper">
+                        <div class="wrapper-left">
+                        </div>
+                        <div class="wrapper-right">
+                            <div class="dm-img">
+                                <img src="./assets/imgs/foreground/6-丹麦地标建筑.png" alt="">
+                            </div>
+                            <div class="text">
+                                <p>比亚迪宣布任命Nic.Christiansen Group为其在丹麦的电动乘用车经销商。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="chronology-qcsc" class="chronology">
+                <div class="pull-down">
+                    <div class="pull-down-icon">
+                        <div class="dot">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="icon">
+                            <svg t="1752293042486" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" p-id="5488" width="20" height="20">
+                                <path
+                                    d="M232.096 389.248a32 32 0 0 1 44.96-45.344l2.88 2.848L512 607.84l232.096-261.12a32 32 0 0 1 41.984-5.12l3.2 2.496a32 32 0 0 1 5.12 41.984l-2.496 3.2-256 288a32 32 0 0 1-44.96 2.816l-2.88-2.848-256-288z"
+                                    fill="#ffffff" p-id="5489"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="pull-down-text">
+                        <div class="date">
+                            <p>10/2022</p>
+                        </div>
+                        <div class="button">
+                            <p>下拉查询政策</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pull-down-content">
+                    <ul>
+                        <a>点击查看所有生效政策</a>
+                    </ul>
+                    <div class="pull-up">
+                        <div class="pull-up-icon">
+                            <div class="icon">
+                                <svg t="1752293042486" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" p-id="5488" width="20" height="20">
+                                    <path
+                                        d="M791.904 634.752a32 32 0 0 1-44.96 45.344l-2.88-2.848L512 416.16l-232.096 261.12a32 32 0 0 1-41.984 5.12l-3.2-2.496a32 32 0 0 1-5.12-41.984l2.496-3.2 256-288a32 32 0 0 1 44.96-2.816l2.88 2.848 256 288z"
+                                        fill="#ffffff" p-id="5489"></path>
+                                </svg>
+                            </div>
+                            <div class="dot">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-content">
+                    <div class="content-wrapper">
+                        <div class="wrapper-left">
+
+                        </div>
+                        <div class="wrapper-right">
+                            <div class="sixt">
+                                <img src="./assets/imgs/foreground/7-SIXT.png" alt="">
+                            </div>
+                            <div class="text">
+                                <p>比亚迪与SIXT合作，SIXT将在未来6年内向比亚迪采购至少10万辆新能源汽车</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="chronology-sjb" class="chronology">
+                <div class="pull-down">
+                    <div class="pull-down-icon">
+                        <div class="dot">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="icon">
+                            <svg t="1752293042486" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" p-id="5488" width="20" height="20">
+                                <path
+                                    d="M232.096 389.248a32 32 0 0 1 44.96-45.344l2.88 2.848L512 607.84l232.096-261.12a32 32 0 0 1 41.984-5.12l3.2 2.496a32 32 0 0 1 5.12 41.984l-2.496 3.2-256 288a32 32 0 0 1-44.96 2.816l-2.88-2.848-256-288z"
+                                    fill="#ffffff" p-id="5489"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="pull-down-text">
+                        <div class="date">
+                            <p>1/2023</p>
+                        </div>
+                        <div class="button">
+                            <p>下拉查询政策</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pull-down-content">
+                    <ul>
+                        <li>【新】《2023年新能源汽车推广应用财政补贴政策》强调，补贴将向高质量产品和服务倾斜，推动市场从政策驱动转向自主发展。补贴幅度依据车辆性能和服务质量动态调整。</li>
+                        <li>【新】欧盟：对电池碳足迹、原材料采购、回收再利用、性能耐久性及透明度追溯性提出严格要求，增加合规成本和供应链管理难度，提高市场准入门槛。</li>
+                        <li>【新】德国：2023年起，插电混动车型不再享受补贴。同年9月起，取消对企业采购的纯电动车型的补贴，个人购买的补贴自24年1月1日起结束。</li>
+                        <a>点击查看所有生效政策</a>
+                    </ul>
+                    <div class="pull-up">
+                        <div class="pull-up-icon">
+                            <div class="icon">
+                                <svg t="1752293042486" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" p-id="5488" width="20" height="20">
+                                    <path
+                                        d="M791.904 634.752a32 32 0 0 1-44.96 45.344l-2.88-2.848L512 416.16l-232.096 261.12a32 32 0 0 1-41.984 5.12l-3.2-2.496a32 32 0 0 1-5.12-41.984l2.496-3.2 256-288a32 32 0 0 1 44.96-2.816l2.88 2.848 256 288z"
+                                        fill="#ffffff" p-id="5489"></path>
+                                </svg>
+                            </div>
+                            <div class="dot">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-content">
+                    <div class="content-wrapper">
+                        <div class="wrapper-left">
+                            <div class="ozb-img">
+                                <img src="./assets/imgs/foreground/9-欧洲杯.png" alt="">
+                            </div>
+                        </div>
+                        <div class="wrapper-right">
+                            <div class="text">
+                                <p>比亚迪成为欧洲杯官方出行合作伙伴</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="chronology-mnhcz" class="chronology">
+                <div class="pull-down">
+                    <div class="pull-down-icon">
+                        <div class="dot">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="icon">
+                            <svg t="1752293042486" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" p-id="5488" width="20" height="20">
+                                <path
+                                    d="M232.096 389.248a32 32 0 0 1 44.96-45.344l2.88 2.848L512 607.84l232.096-261.12a32 32 0 0 1 41.984-5.12l3.2 2.496a32 32 0 0 1 5.12 41.984l-2.496 3.2-256 288a32 32 0 0 1-44.96 2.816l-2.88-2.848-256-288z"
+                                    fill="#ffffff" p-id="5489"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="pull-down-text">
+                        <div class="date">
+                            <p>9/2023</p>
+                        </div>
+                        <div class="button">
+                            <p>下拉查询政策</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pull-down-content">
+                    <ul>
+                        <li>【新】欧盟：正式开启针对中国电动汽车的反补贴调查，并决定在10%标准汽车税基础上，对中国产新能源汽车加征17%-36.3%反补贴税。</li>
+                    </ul>
+                    <div class="pull-up">
+                        <div class="pull-up-icon">
+                            <div class="icon">
+                                <svg t="1752293042486" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" p-id="5488" width="20" height="20">
+                                    <path
+                                        d="M791.904 634.752a32 32 0 0 1-44.96 45.344l-2.88-2.848L512 416.16l-232.096 261.12a32 32 0 0 1-41.984 5.12l-3.2-2.496a32 32 0 0 1-5.12-41.984l2.496-3.2 256-288a32 32 0 0 1 44.96-2.816l2.88 2.848 256 288z"
+                                        fill="#ffffff" p-id="5489"></path>
+                                </svg>
+                            </div>
+                            <div class="dot">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-content">
+                    <div class="content-wrapper">
+                        <div class="wrapper-left">
+
+                        </div>
+                        <div class="wrapper-right">
+                            <div class="text">
+                                <p>海豹在慕尼黑车展上正式上市</p>
+                                <p>宋PLUS EV冠军版也在欧洲上市</p>
+                            </div>
+                            <div class="s-plus">
+                                <img src="./assets/imgs/foreground/10-宋plus.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="chronology-xylqyys" class="chronology">
+                <div class="pull-down">
+                    <div class="pull-down-icon">
+                        <div class="dot">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="icon">
+                            <svg t="1752293042486" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" p-id="5488" width="20" height="20">
+                                <path
+                                    d="M232.096 389.248a32 32 0 0 1 44.96-45.344l2.88 2.848L512 607.84l232.096-261.12a32 32 0 0 1 41.984-5.12l3.2 2.496a32 32 0 0 1 5.12 41.984l-2.496 3.2-256 288a32 32 0 0 1-44.96 2.816l-2.88-2.848-256-288z"
+                                    fill="#ffffff" p-id="5489"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="pull-down-text">
+                        <div class="date">
+                            <p>1/2024</p>
+                        </div>
+                        <div class="button">
+                            <p>下拉查询政策</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pull-down-content">
+                    <ul>
+                        <li>【新】匈牙利：政府宣布对在本国建厂的电动汽车制造商提供税收优惠，最高可减免企业所得税50%。</li>
+                        <li>【新】欧盟：欧盟委员会正式对中国电动汽车征收反补贴税，最终税率在17.4%至38.1%之间。</li>
+                        <li>【新】中国：商务部表示将采取必要措施维护中国企业合法权益，并敦促欧盟尊重WTO规则。</li>
+                        <a>点击查看所有生效政策</a>
+                    </ul>
+                    <div class="pull-up">
+                        <div class="pull-up-icon">
+                            <div class="icon">
+                                <svg t="1752293042486" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" p-id="5488" width="20" height="20">
+                                    <path
+                                        d="M791.904 634.752a32 32 0 0 1-44.96 45.344l-2.88-2.848L512 416.16l-232.096 261.12a32 32 0 0 1-41.984 5.12l-3.2-2.496a32 32 0 0 1-5.12-41.984l2.496-3.2 256-288a32 32 0 0 1 44.96-2.816l2.88 2.848 256 288z"
+                                        fill="#ffffff" p-id="5489"></path>
+                                </svg>
+                            </div>
+                            <div class="dot">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-content">
+                    <div class="content-wrapper">
+                        <div class="wrapper-left">
+                            <div class="xylgc-img">
+                                <img src="./assets/imgs/foreground/11-匈牙利工厂.png" alt="">
+                            </div>
+                        </div>
+                        <div class="wrapper-right">
+                            <div class="text">
+                                <p>与匈牙利的塞格德市政府签署了土地预购协议，建设新能源乘用车生产基地。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="chronology-omwyh" class="chronology">
+                <div class="pull-down">
+                    <div class="pull-down-icon">
+                        <div class="dot">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="icon">
+                            <svg t="1752293042486" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" p-id="5488" width="20" height="20">
+                                <path
+                                    d="M232.096 389.248a32 32 0 0 1 44.96-45.344l2.88 2.848L512 607.84l232.096-261.12a32 32 0 0 1 41.984-5.12l3.2 2.496a32 32 0 0 1 5.12 41.984l-2.496 3.2-256 288a32 32 0 0 1-44.96 2.816l-2.88-2.848-256-288z"
+                                    fill="#ffffff" p-id="5489"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="pull-down-text">
+                        <div class="date">
+                            <p>3/2024</p>
+                        </div>
+                        <div class="button">
+                            <p>下拉查询政策</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pull-down-content">
+                    <ul>
+                        <li>【新】欧盟：《欧盟电池与废电池法规》规范在欧盟销售的所有类型电池的全生命周期，包括信息披露、电池回收管理、减碳目标等。</li>
+                        <a>点击查看所有生效政策</a>
+                    </ul>
+                    <div class="pull-up">
+                        <div class="pull-up-icon">
+                            <div class="icon">
+                                <svg t="1752293042486" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" p-id="5488" width="20" height="20">
+                                    <path
+                                        d="M791.904 634.752a32 32 0 0 1-44.96 45.344l-2.88-2.848L512 416.16l-232.096 261.12a32 32 0 0 1-41.984 5.12l-3.2-2.496a32 32 0 0 1-5.12-41.984l2.496-3.2 256-288a32 32 0 0 1 44.96-2.816l2.88 2.848 256 288z"
+                                        fill="#ffffff" p-id="5489"></path>
+                                </svg>
+                            </div>
+                            <div class="dot">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-content">
+                    <div class="content-wrapper">
+                        <div class="wrapper-left">
+                            <div class="omldr-img">
+                                <img src="./assets/imgs/foreground/12-欧盟领导人.png" alt="">
+                            </div>
+                        </div>
+                        <div class="wrapper-right">
+                            <div class="text">
+                                <p>欧盟对比亚迪在匈工厂展开调查，声称其得到“不公平补贴</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="chronology-ydl" class="chronology">
+                <div class="pull-down">
+                    <div class="pull-down-icon">
+                        <div class="dot">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="icon">
+                            <svg t="1752293042486" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" p-id="5488" width="20" height="20">
+                                <path
+                                    d="M232.096 389.248a32 32 0 0 1 44.96-45.344l2.88 2.848L512 607.84l232.096-261.12a32 32 0 0 1 41.984-5.12l3.2 2.496a32 32 0 0 1 5.12 41.984l-2.496 3.2-256 288a32 32 0 0 1-44.96 2.816l-2.88-2.848-256-288z"
+                                    fill="#ffffff" p-id="5489"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="pull-down-text">
+                        <div class="date">
+                            <p>8/2024</p>
+                        </div>
+                        <div class="button">
+                            <p>下拉查询政策</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pull-down-content">
+                    <ul>
+                        <li>【新】意大利：发布电动汽车补贴政策，为收入低于3万欧元的家庭提供最高13,750欧元补贴，要求报废旧车且购买意大利产电动车。</li>
+                        <li>【新】欧盟：《欧盟电池与废电池法规》规范在欧盟销售的所有类型电池的全生命周期，包括信息披露、电池回收管理、减碳目标等。</li>
+                        <a>点击查看所有生效政策</a>
+                    </ul>
+                    <div class="pull-up">
+                        <div class="pull-up-icon">
+                            <div class="icon">
+                                <svg t="1752293042486" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" p-id="5488" width="20" height="20">
+                                    <path
+                                        d="M791.904 634.752a32 32 0 0 1-44.96 45.344l-2.88-2.848L512 416.16l-232.096 261.12a32 32 0 0 1-41.984 5.12l-3.2-2.496a32 32 0 0 1-5.12-41.984l2.496-3.2 256-288a32 32 0 0 1 44.96-2.816l2.88 2.848 256 288z"
+                                        fill="#ffffff" p-id="5489"></path>
+                                </svg>
+                            </div>
+                            <div class="dot">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-content">
+                    <div class="content-wrapper">
+                        <div class="wrapper-left">
+                            <div class="text">
+                                <p>加强意大利经销商建设，与Autotorino 在米兰开设第一家先锋店</p>
+                            </div>
+                        </div>
+                        <div class="wrapper-right">
+                            <div class="ydlsjt-img">
+                                <img src="./assets/imgs/foreground/13-意大利设计图.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </section>
+
+
+        <section id="accounting" class="accounting">
+            <div class="section-content">
+                <div class="content-wrapper">
+                    <div class="chart-top">
+                        <iframe src="https://dycharts.com/xshow/index.html?id=c_947c077c0c18c8b8278df1580ec5a550"
+                            width="600" height="510" scrolling="no" frameborder="0" align=""></iframe>
+                        <iframe src="https://dycharts.com/xshow/index.html?id=c_e5907b0124fc8a3eb7a5d81af10e40ed"
+                            width="600" height="510" scrolling="no" frameborder="0" align=""></iframe>
+                        <iframe src="https://dycharts.com/xshow/index.html?id=c_f8ebe05a1794aa13c3606ee96f1af825"
+                            width="600" height="510" scrolling="no" frameborder="0" align=""></iframe>
+                    </div>
+                    <div class="chart-bottom">
+                        <iframe src="https://dycharts.com/xshow/index.html?id=c_3a5169ab137acebf6cff81819f9f9c58"
+                            width="600" height="510" scrolling="no" frameborder="0" align=""></iframe>
+                        <iframe src="https://dycharts.com/xshow/index.html?id=c_d75918ffb0e8cd3403d17357b199040d"
+                            width="600" height="510" scrolling="no" frameborder="0" align=""></iframe>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="accounting">
+            <div class="section-content">
+                <div class="content-wrapper">
+                    <div class="content-wrapper">
+                        <div class="chart-top">
+                            <iframe src="https://dycharts.com/xshow/index.html?id=c_24f5c5a34764abe3087be7b445641790"
+                                width="600" height="510" scrolling="no" frameborder="0" align=""></iframe>
+                            <iframe src="https://dycharts.com/xshow/index.html?id=c_9532e876eac2e7aaa6fd1da672459830"
+                                width="600" height="510" scrolling="no" frameborder="0" align=""></iframe>
+                            <iframe src="https://dycharts.com/xshow/index.html?id=c_d78f7acba3eadfa5fc7323a0360be69b"
+                                width="600" height="510" scrolling="no" frameborder="0" align=""></iframe>
+                        </div>
+                    </div>
+                    <div class="chart-bottom">
+                        <iframe src="https://dycharts.com/xshow/index.html?id=c_c36583bc879c251fa277705dd2b50f1e"
+                            width="600" height="510" scrolling="no" frameborder="0" align=""></iframe>
+                        <iframe src="https://dycharts.com/xshow/index.html?id=c_2e3c1d4581b20d9e648624a10c19eb63"
+                            width="600" height="510" scrolling="no" frameborder="0" align=""></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="accounting">
+            <div class="section-content">
+                <div class="chart-top">
+                    <iframe src="https://dycharts.com/xshow/index.html?id=c_24f5c5a34764abe3087be7b445641790"
+                        width="600" height="510" scrolling="no" frameborder="0" align=""></iframe>
+                    <iframe src="https://dycharts.com/xshow/index.html?id=c_9532e876eac2e7aaa6fd1da672459830"
+                        width="600" height="510" scrolling="no" frameborder="0" align=""></iframe>
+                    <iframe src="https://dycharts.com/xshow/index.html?id=c_d78f7acba3eadfa5fc7323a0360be69b"
+                        width="600" height="510" scrolling="no" frameborder="0" align=""></iframe>
+                </div>
+                <div class="chart-bottom">
+                    <iframe src="https://dycharts.com/xshow/index.html?id=c_61b6253609d720b297d362d4cdb8a66f"
+                        width="600" height="510" scrolling="no" frameborder="0" align=""></iframe>
+                    <iframe src="https://dycharts.com/xshow/index.html?id=c_2f77288c2584ecf15311c28c5424f6b6"
+                        width="600" height="510" scrolling="no" frameborder="0" align=""></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="compiled">
+            <div class="section-content">
+                <div class="content-wrapper">
+                    <div class="content-item">
+                        <div class="item-left">
+                            <p>总策划</p>
+                            <span>Chief Planner</span>
+                        </div>
+                        <div class="item-right">
+                            <p>周芸西</p>
+                            <span>Zhou Yunxi</span>
+                        </div>
+                    </div>
+                    <div class="content-item">
+                        <div class="item-left">
+                            <p>文案撰写</p>
+                            <span>Copywriting</span>
+                        </div>
+                        <div class="item-right">
+                            <p>高畅</p>
+                            <span>Gao Chang</span>
+                        </div>
+                    </div>
+                    <div class="content-item">
+                        <div class="item-left">
+                            <p>数据分析</p>
+                            <span>Data Analysis</span>
+                        </div>
+                        <div class="item-right">
+                            <p>吕嘉祺</p>
+                            <span>Lv Jiaqi</span>
+                        </div>
+                    </div>
+                    <div class="content-item">
+                        <div class="item-left">
+                            <p>可视化</p>
+                            <span>Visualization</span>
+                        </div>
+                        <div class="item-right">
+                            <p>肖明峪</p>
+                            <span>Xiao Mingyu</span>
+                        </div>
+                    </div>
+                    <div class="content-item">
+                        <div class="item-left">
+                            <p>指导老师</p>
+                            <span>Tutor</span>
+                        </div>
+                        <div class="item-right">
+                            <p>冯璐</p>
+                            <span>Feng Lu</span>
+                        </div>
+                    </div>
+                    <div class="content-item">
+                        <div class="item-left">
+                            <p>队伍高校</p>
+                            <span>University</span>
+                        </div>
+                        <div class="item-right">
+                            <p>东北师范大学</p>
+                            <span>NENU</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="slither">
+        <span>滑动“新”行</span>
+    </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/TextPlugin.min.js"></script>
+    <script src="./js/index.js"></script>
+    <!-- <script src="./js/parallax-v3.js"></script> -->
+    <!-- <script src="./js/parallax-deluxe.js"></script> -->
+    <script src="./js/ultra-smooth-parallax.js"></script>
+    <script src="./js/map.js"></script>
+    <script src="./js/chronology-animations.js"></script>
+    <script src="./js/home-animations.js"></script>
+    <script src="./js/circumstances-animations.js"></script>
+    <script src="./js/compiled-animations.js"></script>
+    <script src="./js/slither-animations.js"></script>
+    <script>
+        // 页面加载完成后初始化Ultra Smooth视差效果
+        document.addEventListener('DOMContentLoaded', function () {
+            window.initUltraSmoothParallax();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,247 @@
+#app {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#app::-webkit-scrollbar {
+    display: none;
+}
+
+.nav {
+    width: var(--nav-width);
+    height: 100%;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-family-hanamin);
+    z-index: 10;
+    overflow: hidden;
+}
+
+.logo-name {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--font-color);
+    font-size: 36px;
+    will-change: transform, opacity;
+}
+
+.logo-name a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    padding: 5px 0;
+}
+
+/* 移除Logo的下划线效果 */
+/* 
+.logo-name a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--font-color);
+    transition: width 0.3s ease;
+}
+
+.logo-name a:hover::after {
+    width: 50%;
+}
+
+.logo-name a.active::after {
+    width: 50%;
+}
+*/
+
+.nav-bottom {
+    width: 100%;
+    height: 150px;
+    opacity: 0;
+}
+
+.nav-list {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.nav-list ul {
+    width: 100%;
+    font-size: 30px;
+    color: var(--font-color);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 90px 0;
+}
+
+.nav-list ul li {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    will-change: transform, opacity;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-list ul li a {
+    position: relative;
+    padding: 5px 0;
+}
+
+/* 导航项hover效果 - 下划线 */
+.nav-list ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--font-color);
+    transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.nav-list ul li a:hover::after {
+    width: 100%;
+}
+
+/* 当前活动导航项样式 */
+.nav-list ul li a.active::after {
+    width: 100%;
+}
+
+/* 导航项过渡动画类 */
+.nav-list ul li a.animating-in::after {
+    width: 100%;
+}
+
+.nav-list ul li a.animating-out::after {
+    width: 0;
+}
+
+.slither {
+    position: fixed;
+    right: 50px;
+    bottom: 10px;
+    z-index: 1000;
+    will-change: transform, opacity;
+}
+
+.slither span {
+    width: 100%;
+    font-size: 24px;
+    color: var(--font-color);
+    margin-bottom: 50px;
+    display: block;
+}
+
+.main {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    background-color: #000;
+}
+
+section {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    /* padding-left: var(--nav-width); */
+    will-change: transform, opacity;
+    overflow: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    background-color: #000;
+}
+
+/* 视差背景层样式 */
+.section-bg {
+    position: absolute;
+    transform: translateY(-10%);
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    will-change: transform;
+    transform-style: preserve-3d;
+}
+
+.section-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: var(--nav-width);
+    color: var(--font-color);
+    will-change: transform, opacity;
+    transform-style: preserve-3d;
+    pointer-events: none;
+}
+
+#home .section-bg {
+    background-image: var(--bg-index);
+}
+
+#circumstances .section-bg {
+    background-image: var(--bg-circumstances);
+}
+
+#chronology .section-bg {
+    background-image: var(--bg-chronology);
+}
+
+#accounting .section-bg {
+    background-image: var(--bg-accounting);
+}
+
+#compiled .section-bg {
+    background-image: var(--bg-compiled);
+}
+
+.parallax-bg-container,
+.parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+}
+
+.animate-element {
+    transition: opacity 0.3s ease;
+}
+
+.page-progress-indicator .progress-dot:hover {
+    transform: scale(1.5);
+    background-color: #fff !important;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+

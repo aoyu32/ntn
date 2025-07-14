@@ -1,0 +1,772 @@
+.pull-down {
+    width: 100%;
+    padding: 20px 50px;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    text-align: end;
+    user-select: none;
+    z-index: 999;
+    overflow: hidden;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, padding 0.3s ease;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0);
+    top: 0;
+    left: 0;
+    transform-origin: top center;
+}
+
+.pull-down::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.223));
+    z-index: -1;
+    transition: height 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.pull-down:hover::before {
+    height: 100%;
+}
+
+/* 添加下拉状态下的背景效果，即使鼠标离开也保持 */
+.pull-down.pulling::before {
+    height: 100%;
+}
+
+.pull-down-icon {
+    opacity: 0;
+    transition: opacity 0.5s, transform 0.3s ease;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.pull-down:hover .pull-down-icon,
+.pull-down.pulling .pull-down-icon {
+    opacity: 1;
+}
+
+.pull-down-icon .dot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: gap 0.3s ease, transform 0.3s ease;
+}
+
+.pull-down-icon .dot span {
+    display: inline-block;
+    width: 2px;
+    height: 2px;
+    background-color: var(--font-color);
+    border-radius: 50%;
+    transition: height 0.3s ease, width 0.3s ease;
+}
+
+.pull-down-icon .icon {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+    transform-origin: center;
+    will-change: transform;
+}
+
+.pull-down-icon .icon svg {
+    color: var(--font-color);
+}
+
+/* 拉动状态 */
+.pull-down.pulling {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.05);
+    /* 添加背景色，确保在拖动时有视觉反馈 */
+    padding-bottom: 25px;
+    /* 增加底部内边距，产生拉伸效果 */
+}
+
+.pull-down.pulling .pull-down-icon .icon {
+    transform: translateY(5px);
+}
+
+.pull-down.pulling .pull-down-icon .dot {
+    gap: 7px;
+    /* 增加点之间的间距 */
+    transform: translateY(5px);
+}
+
+.pull-down.pulling .pull-down-icon .dot span {
+    height: 3px;
+    /* 增加点的高度 */
+    width: 3px;
+    /* 增加点的宽度 */
+}
+
+/* 可释放状态 */
+.pull-down.ready-to-release {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
+    /* 增强背景色，提供更明显的视觉反馈 */
+    padding-bottom: 30px;
+    /* 进一步增加底部内边距，产生更明显的拉伸效果 */
+}
+
+.pull-down.ready-to-release .pull-down-icon .icon {
+    transform: translateY(10px);
+}
+
+.pull-down.ready-to-release .pull-down-icon .dot {
+    gap: 9px;
+    /* 进一步增加点之间的间距 */
+    transform: translateY(10px);
+}
+
+.pull-down.ready-to-release .pull-down-icon .dot span {
+    height: 4px;
+    /* 进一步增加点的高度 */
+    width: 4px;
+    /* 进一步增加点的宽度 */
+}
+
+/* 活动状态 */
+.pull-down.active {
+    background-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.pull-down-text {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.date {
+    font-size: 36px;
+    font-family: var(--font-family-quciksand);
+    color: var(--font-color);
+    letter-spacing: 10px;
+    vertical-align: top;
+}
+
+.button {
+    font-size: 20px;
+    color: var(--font-color);
+    letter-spacing: 4px;
+    padding: 6px;
+    font-family: var(--font-family-hanamin);
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.chronology .content-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chronology .wrapper-left {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: end;
+    padding-bottom: 150px;
+}
+
+.chronology .warpper-left .text {
+    width: 100%;
+    height: auto;
+}
+
+.chronology .wrapper-left .text p {
+    font-family: var(--font-family-hanamin);
+    font-size: 36px;
+}
+
+.chronology .wrapper-right {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    padding: 0 50px 70px 0;
+}
+
+
+.chronology .wrapper-right .foreground {
+    width: 55%;
+    margin-bottom: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.chronology .foreground img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.pull-down-content {
+    width: 100%;
+    background-color: rgba(30, 30, 30, 0.65);
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+    will-change: height;
+    height: 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transform-origin: top center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.pull-down-content ul {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: var(--font-color);
+    font-size: 26px;
+    padding: 20px 200px 76px 200px;
+    margin-bottom: 76px;
+    opacity: 0.9;
+    transform: translateY(-10px);
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.4s ease;
+    font-family: var(--font-family-harmonyos);
+    flex: 1;
+}
+
+.pull-down-content[style*="height: 0"] ul {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.pull-down-content:not([style*="height: 0"]) ul {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.pull-down-content ul li {
+    width: 100%;
+    padding: 20px 0;
+    line-height: 1.6;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+
+.pull-down-content ul a {
+    width: 100%;
+    padding: 20px 0;
+    line-height: 1.6;
+    font-size: 20px;
+}
+
+.pull-down-content:not([style*="height: 0"]) ul li {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: calc(0.05s * var(--li-index, 0));
+}
+
+.pull-down-content ul li:nth-child(1) {
+    --li-index: 1;
+}
+
+.pull-down-content ul li:nth-child(2) {
+    --li-index: 2;
+}
+
+.pull-down-content ul li:nth-child(3) {
+    --li-index: 3;
+}
+
+.pull-down-content ul li:nth-child(4) {
+    --li-index: 4;
+}
+
+.pull-down-content ul li:nth-child(5) {
+    --li-index: 5;
+}
+
+.pull-down-content ul li:nth-child(6) {
+    --li-index: 6;
+}
+
+.pull-down-content ul li:last-child {
+    border-bottom: none;
+    padding-bottom: 30px;
+}
+
+/* Pull-up区域样式 */
+.pull-up {
+    width: 100%;
+    padding: 20px 50px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    user-select: none;
+    z-index: 999;
+    overflow: hidden;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, padding 0.3s ease;
+    cursor: pointer;
+    border-top: 1px solid rgba(255, 255, 255, 0);
+    bottom: 0;
+    left: 0;
+    transform-origin: bottom center;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.pull-up::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.223));
+    z-index: -1;
+    transition: height 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.pull-up:hover::before {
+    height: 100%;
+}
+
+/* 添加上拉状态下的背景效果，即使鼠标离开也保持 */
+.pull-up.pulling::before {
+    height: 100%;
+}
+
+.pull-up-icon {
+    transition: opacity 0.5s, transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pull-up:hover .pull-up-icon,
+.pull-up.pulling .pull-up-icon {
+    opacity: 1;
+}
+
+.pull-up-icon .dot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: gap 0.3s ease, transform 0.3s ease;
+}
+
+.pull-up-icon .dot span {
+    display: inline-block;
+    width: 2px;
+    height: 2px;
+    background-color: var(--font-color);
+    border-radius: 50%;
+    transition: height 0.3s ease, width 0.3s ease;
+}
+
+.pull-up-icon .icon {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+    transform-origin: center;
+    will-change: transform;
+}
+
+.pull-up-icon .icon svg {
+    color: var(--font-color);
+}
+
+/* 拉动状态 */
+.pull-up.pulling {
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.05);
+    padding-top: 25px;
+    /* 增加顶部内边距，产生拉伸效果 */
+}
+
+.pull-up.pulling .pull-up-icon .icon {
+    transform: translateY(-5px);
+}
+
+.pull-up.pulling .pull-up-icon .dot {
+    gap: 7px;
+    /* 增加点之间的间距 */
+    transform: translateY(-5px);
+}
+
+.pull-up.pulling .pull-up-icon .dot span {
+    height: 3px;
+    /* 增加点的高度 */
+    width: 3px;
+    /* 增加点的宽度 */
+}
+
+/* 可释放状态 */
+.pull-up.ready-to-release {
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
+    padding-top: 30px;
+    /* 进一步增加顶部内边距，产生更明显的拉伸效果 */
+}
+
+.pull-up.ready-to-release .pull-up-icon .icon {
+    transform: translateY(-10px);
+}
+
+.pull-up.ready-to-release .pull-up-icon .dot {
+    gap: 9px;
+    /* 进一步增加点之间的间距 */
+    transform: translateY(-10px);
+}
+
+.pull-up.ready-to-release .pull-up-icon .dot span {
+    height: 4px;
+    /* 进一步增加点的高度 */
+    width: 4px;
+    /* 进一步增加点的宽度 */
+}
+
+/* 活动状态 */
+.pull-up.active {
+    background-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+#chronology-cdz {
+    background-color: #131B21;
+}
+
+#chronology-cdz .wrapper-left {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 0;
+    gap: 50px;
+}
+
+#chronology-cdz .cards {
+    width: 70%;
+    height: 60%;
+    position: relative;
+    padding-top: 20px;
+}
+
+
+#chronology-cdz .cards .card-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+}
+
+#chronology-cdz .wrapper-left .text p {
+    width: 79%;
+}
+
+#chronology-hl .wrapper-left {
+    width: 45%;
+}
+
+#chronology-hl .wrapper-right {
+    padding-top: 120px;
+    width: 55%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+}
+
+.louwman {
+    width: 50%;
+    height: 20%;
+}
+
+.louwman img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+#chronology-hl .wrapper-right .text p {
+    font-size: 36px;
+    font-family: var(--font-family-hanamin);
+}
+
+#chronology-dm .wrapper-left {
+    width: 0;
+}
+
+#chronology-dm .section-content {
+    padding-left: 0;
+}
+
+
+#chronology-dm .wrapper-right {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    padding-bottom: 0;
+
+}
+
+#chronology-dm .dm-img {
+    width: 70%;
+    height: 100%;
+}
+
+.dm-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+#chronology-dm .text {
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    width: 37%;
+}
+
+#chronology-dm .text p {
+    font-size: 36px;
+    font-family: var(--font-family-hanamin);
+}
+
+#chronology-qcsc .wrapper-right {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding-top: 150px;
+    gap: 30px;
+}
+
+#chronology-qcsc .sixt {
+    width: 50%;
+    height: 25%;
+    display: flex;
+}
+
+#chronology-qcsc .sixt img {
+    width: 100%;
+    height: 100%;
+    object-fit: co;
+}
+
+#chronology-qcsc .text {
+    font-size: 36px;
+    font-family: var(--font-family-hanamin);
+    width: 81%;
+}
+
+#chronology-sjb .wrapper-left {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 0;
+}
+
+#chronology-sjb .ozb-img {
+
+    width: 70%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    padding-right: 120px;
+}
+
+#chronology-sjb .ozb-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#chronology-sjb .wrapper-right {
+    width: 60%;
+    padding-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+#chronology-sjb .text {
+    font-size: 36px;
+    font-family: var(--font-family-hanamin);
+}
+
+#chronology-mnhcz {
+    background-color: #131B21;
+}
+
+#chronology-mnhcz .parallax-bg {
+    background-position: center -200px !important;
+}
+
+
+#chronology-mnhcz .wrapper-right {
+    width: 60%;
+    height: 100%;
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    padding-top: 100px;
+    gap: 50px;
+}
+
+
+#chronology-mnhcz .text {
+    font-size: 36px;
+    font-family: var(--font-family-hanamin);
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+#chronology-mnhcz .s-plus {
+    width: 79%;
+    height: 55%;
+    display: flex;
+
+}
+
+.s-plus img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+#chronology-xylqyys .section-content {
+    padding-left: 0;
+}
+
+#chronology-xylqyys .wrapper-left {
+    padding-bottom: 0;
+    width: 66%;
+}
+
+#chronology-xylqyys .xylgc-img {
+    width: 100%;
+    height: 45%;
+}
+
+#chronology-xylqyys .xylgc-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#chronology-xylqyys .wrapper-right {
+    padding-bottom: 0;
+    width: 60%;
+    display: flex;
+    align-items: center;
+}
+
+#chronology-xylqyys .text {
+    font-size: 36px;
+    font-family: var(--font-family-hanamin);
+    margin-bottom: 45%;
+}
+
+#chronology-omwyh .wrapper-left {
+    padding-bottom: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    padding-right: 100px;
+}
+
+#chronology-omwyh .omldr-img {
+    width: 100%;
+    height: 60%;
+}
+
+.omldr-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#chronology-omwyh .wrapper-right {
+    width: 50%;
+    height: 100%;
+    padding-bottom: 0;
+    display: flex;
+    align-items: center;
+}
+
+#chronology-omwyh .text {
+    font-size: 36px;
+    font-family: var(--font-family-hanamin);
+    width: 100%;
+}
+
+#chronology-ydl .wrapper-left {
+    width: 40%;
+    height: 100%;
+    padding-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#chronology-ydl .text {
+    font-size: 36px;
+    font-family: var(--font-family-hanamin);
+}
+
+#chronology-ydl .wrapper-right {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.ydlsjt-img {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.ydlsjt-img img {
+    width: 75%;
+    height: 100%;
+    object-fit: contain;
+}

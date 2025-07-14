@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    overflow: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+}
+
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-color: #ffffff;
+    --font-color: #ffffff;
+    --hover-color: #c6bbbb;
+    --font-family-hanamin: "HanaMinA", serif;
+    --font-family-quciksand: 'Quicksand', sans-serif;
+    --font-family-harmonyos: 'HarmonyOS Sans SC', sans-serif;
+    --nav-width: 250px;
+    --bg-index: url('../assets/imgs/background/1-初始页.jpg');
+    --bg-circumstances: url('../assets/imgs/foreground/2-情境.jpg');
+    --bg-chronology-bydch: url('../assets/imgs/background/3-比亚迪出海.jpg');
+    --bg-chronology-cdz: url('../assets/imgs/background/4-充电桩.png');
+    --bg-chronology-hl: url('../assets/imgs/background/5-荷兰.png');
+    --bg-chronology-dm: url('../assets/imgs/background/6-丹麦.jpg');
+    --bg-chronology-qcsc: url('../assets/imgs/background/7-汽车生产.jpg');
+    --bg-chronology-sjb: url('../assets/imgs/background/9-世界杯.jpg');
+    --bg-chronology-mnhcz: url('../assets/imgs/background/10-慕尼黑车展.png');
+    --bg-chronology-xylqyys: url('../assets/imgs/background/11-匈牙利签约仪式现场合影.jpg');
+    --bg-chronology-omwyh: url('../assets/imgs/background/12-欧盟委员会.jpeg');
+    --bg-chronology-ydl: url('../assets/imgs/background/13-意大利.jpg');
+    --bg-accounting: url('../assets/imgs/background/252627-灯光地图.png');
+    --bg-compiled: url('../assets/imgs/background/8-结尾.png');
+}
