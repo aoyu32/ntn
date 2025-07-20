@@ -1,9 +1,7 @@
 /**
  * compiled-animations.js
  * 为 #compiled section 创建动画效果
- * 动画效果：每个 content-item 依次执行动画
- * item-left 从左向右移动，完成后 item-right 从右向左移动
- * 整个过程持续 3 秒，开始前有 0.5 秒延迟
+ * 动画效果：整个content-wrapper从视口外下方向上移动到达布局好的位置
  */
 
 class CompiledAnimations {
@@ -13,28 +11,21 @@ class CompiledAnimations {
     
     // 获取元素
     this.compiledSection = document.getElementById('compiled');
+    this.contentWrapper = this.compiledSection.querySelector('.content-wrapper');
     this.contentItems = this.compiledSection.querySelectorAll('.content-item');
     
     // 设置动画参数
-    // 为左侧和右侧元素分别设置参数
-    this.leftParams = {
-      duration: 0.2,       // 左侧元素动画持续时间
-      distance: 400        // 左侧元素移动距离（像素）
+    this.params = {
+      duration: 4,        // 动画持续时间（秒）
+      startY: '120%',       // 开始位置（视口下方，使用百分比确保在视口外）
+      initialDelay: 1,    // 初始延迟时间（秒）
+      ease: "none"    // 缓动函数
     };
-    
-    this.rightParams = {
-      duration: 0.7,       // 右侧元素动画持续时间
-      distance: 600        // 右侧元素移动距离（像素）
-    };
-    
-    this.staggerDelay = 0;     // 元素之间的延迟时间
-    this.initialDelay = 0.2;      // 初始延迟时间（秒）
-    this.betweenDelay = 0.1;      // item-left 和 item-right 之间的延迟时间
     
     // 创建主时间轴
     this.mainTimeline = gsap.timeline({
       paused: true,
-      defaults: { ease: "power2.out" }
+      defaults: { ease: this.params.ease }
     });
     
     // 初始化动画
@@ -67,65 +58,23 @@ class CompiledAnimations {
    * 设置初始状态和构建动画序列
    */
   setupAnimations() {
-    // 设置所有元素的初始状态
-    gsap.set(this.contentItems, { opacity: 0 });
-    this.contentItems.forEach(item => {
-      const itemLeft = item.querySelector('.item-left');
-      const itemRight = item.querySelector('.item-right');
-      
-      // 设置初始位置 - 左侧元素在左边视口外，右侧元素在右边视口外
-      gsap.set(itemLeft, { 
-        opacity: 0,
-        x: -this.leftParams.distance
-      });
-      
-      gsap.set(itemRight, { 
-        opacity: 0,
-        x: this.rightParams.distance
-      });
+    // 设置内容包装器的初始状态 - 在视口下方
+    gsap.set(this.contentWrapper, {
+      y: this.params.startY,  // 设置在视口外下方
+      opacity: 1              // 保持不透明，只是位置在视口外
     });
     
     // 添加初始延迟
-    this.mainTimeline.delay(this.initialDelay);
+    this.mainTimeline.delay(this.params.initialDelay);
     
-    // 为每个 content-item 创建动画序列
-    this.contentItems.forEach((item, index) => {
-      const itemLeft = item.querySelector('.item-left');
-      const itemRight = item.querySelector('.item-right');
-      
-      // 创建这个 content-item 的时间轴
-      const itemTimeline = gsap.timeline({
-        defaults: { ease: "power2.out" }
-      });
-      
-      // 1. 首先显示整个 content-item
-      itemTimeline.to(item, { 
-        opacity: 1, 
-        duration: 0.1
-      });
-      
-      // 2. 左侧元素从左向右移动 - 使用左侧专用参数
-      itemTimeline.to(itemLeft, { 
-        opacity: 1, 
-        x: 0, 
-        duration: this.leftParams.duration
-      });
-      
-      // 等待左侧动画完成后的延迟
-      itemTimeline.to({}, { duration: this.betweenDelay });
-      
-      // 3. 右侧元素从右向左移动 - 使用右侧专用参数
-      itemTimeline.to(itemRight, { 
-        opacity: 1, 
-        x: 0, 
-        duration: this.rightParams.duration
-      });
-      
-      // 将这个 content-item 的时间轴添加到主时间轴
-      this.mainTimeline.add(itemTimeline, index > 0 ? "+=" + this.staggerDelay : 0);
+    // 创建整个content-wrapper的动画 - 从视口下方移动到原位
+    this.mainTimeline.to(this.contentWrapper, {
+      y: 0,                  // 移动到原始位置
+      duration: this.params.duration,
+      ease: this.params.ease
     });
     
-    console.log(`Compiled animations setup complete. Total duration: ${this.mainTimeline.duration()} seconds (including ${this.initialDelay}s delay)`);
+    console.log(`Compiled animations setup complete. Total duration: ${this.mainTimeline.duration() + this.params.initialDelay} seconds (including ${this.params.initialDelay}s delay)`);
   }
   
   /**
@@ -134,12 +83,10 @@ class CompiledAnimations {
   addScrollTrigger() {
     ScrollTrigger.create({
       trigger: this.compiledSection,
-      start: "top 80%", // 当 section 的顶部到达视口 80% 的位置时开始
+      start: "top 100%", // 当 section 的顶部到达视口 80% 的位置时开始
       end: "bottom 20%", // 当 section 的底部到达视口 20% 的位置时结束
       onEnter: () => this.playAnimation(),
       onEnterBack: () => this.playAnimation(),
-      onLeave: () => this.reverseAnimation(),
-      onLeaveBack: () => this.reverseAnimation(),
       markers: false // 设置为 true 可以在开发时查看触发点
     });
   }
@@ -149,15 +96,7 @@ class CompiledAnimations {
    */
   playAnimation() {
     console.log('Playing compiled section animations');
-    this.mainTimeline.play(0);
-  }
-  
-  /**
-   * 反转动画
-   */
-  reverseAnimation() {
-    console.log('Reversing compiled section animations');
-    this.mainTimeline.reverse();
+    this.mainTimeline.restart();
   }
 }
 

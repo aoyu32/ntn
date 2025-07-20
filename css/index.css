@@ -20,7 +20,7 @@
     justify-content: space-between;
     align-items: center;
     font-family: var(--font-family-hanamin);
-    z-index: 10;
+    z-index: 10000;
     overflow: hidden;
 }
 
@@ -29,7 +29,6 @@
     height: 150px;
     display: flex;
     align-items: center;
-    justify-content: center;
     color: var(--font-color);
     font-size: 36px;
     will-change: transform, opacity;
@@ -37,10 +36,9 @@
 
 .logo-name a {
     display: block;
-    width: 100%;
-    text-align: center;
     position: relative;
     padding: 5px 0;
+    margin-left: 30%;
 }
 
 /* 移除Logo的下划线效果 */
@@ -93,7 +91,6 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
     cursor: pointer;
     will-change: transform, opacity;
     position: relative;
@@ -103,6 +100,8 @@
 .nav-list ul li a {
     position: relative;
     padding: 5px 0;
+    margin-left: 30%;
+    font-size: 26px;
 }
 
 /* 导航项hover效果 - 下划线 */
@@ -139,7 +138,7 @@
     position: fixed;
     right: 50px;
     bottom: 10px;
-    z-index: 1000;
+    z-index: 10000;
     will-change: transform, opacity;
 }
 
@@ -207,7 +206,7 @@ section {
     pointer-events: none;
 }
 
-.parallax-bg{
+.parallax-bg {
     position: absolute;
     width: 100vw;
     height: 100vh;

@@ -50,8 +50,9 @@ li {
 
 :root {
     --primary-color: #ffffff;
-    --font-color: #ffffff;
-    --hover-color: #c6bbbb;
+    --font-color: #ffffffe7;
+    --font-color-light:#ffffffc5;
+    --hover-color: #CEE3F5;
     --font-family-hanamin: "HanaMinA", serif;
     --font-family-quciksand: 'Quicksand', sans-serif;
     --font-family-harmonyos: 'HarmonyOS Sans SC', sans-serif;
