@@ -568,6 +568,10 @@
 #chronology-bydch .wrapper-left .text {
     font-size: 32px;
 }
+.bydch-text{
+    font-size: 20px;
+    width: 90%;
+}
 
 #chronology-cdz {
     background-color: #131B21;

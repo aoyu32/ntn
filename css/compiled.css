@@ -17,7 +17,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 4%;
+    gap: 3%;
     overflow: visible; /* 允许内容溢出，以便动画效果 */
     padding: 0 10%; /* 添加左右内边距，确保有足够的空间容纳移动元素 */
     will-change: transform; /* 提示浏览器transform属性会改变，优化性能 */
@@ -32,7 +32,7 @@
     font-family: var(--font-family-hanamin);
     position: relative; /* 为绝对定位的子元素提供参考 */
     overflow: visible; /* 允许子元素溢出，以便看到从视口外进入的动画 */
-    margin: 10px 0; /* 添加上下边距 */
+    margin: 5px 0; /* 添加上下边距 */
 }
 
 .item-right {
