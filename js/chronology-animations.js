@@ -71,8 +71,8 @@ const animConfig = {
         },
         'chronology-hl': {
             left: {
-                enterFrom: { x: -120, y: 80, opacity: 0, rotation: -3 },     // 左侧内容从左下方滑入，带轻微逆时针旋转
-                exitTo: { x: -120, y: 80, opacity: 0, rotation: -3 }         // 左侧内容向左下方滑出（与入场方向相同）
+                enterFrom: { x: 0, y: 0, opacity: 1, rotation: 0 },     // 左侧内容从左下方滑入，带轻微逆时针旋转
+                exitTo: { x: 0, y: 0, opacity: 1, rotation: 0 }         // 左侧内容向左下方滑出（与入场方向相同）
             },
             right: {
                 enterFrom: { x: 0, y: 0, opacity: 1, rotation: 0 },        // 右侧内容不再使用默认动画，将在playEntranceAnimation中特殊处理
@@ -233,10 +233,10 @@ class ChronologyAnimations {
                         wrapperLeft.querySelector('div:not(.text)');
 
                     // 文本从下方进入
-                    if (leftText) gsap.set(leftText, { y: 500, opacity: 1 });
+                    if (leftImage) gsap.set(leftText, { y: 1000, opacity: 1 });
 
                     // 图片从上方进入
-                    if (leftImage) gsap.set(leftImage, { y: -500, opacity: 1 });
+                    if (leftText) gsap.set(leftImage, { y: -1000, opacity: 1 });
                 }
 
                 if (wrapperRight) {
@@ -253,14 +253,12 @@ class ChronologyAnimations {
             if (sectionId === 'chronology-hl') {
                 if (wrapperRight) {
                     const rightText = wrapperRight.querySelector('.text');
-                    const rightImage = wrapperRight.querySelector('img') ||
-                        wrapperRight.querySelector('.foreground') ||
-                        wrapperRight.querySelector('div:not(.text)');
+                    const leftImage = wrapperLeft.querySelector('img');
 
-                    if (rightImage) {
-                        gsap.set(rightImage, {
+                    if (leftImage) {
+                        gsap.set(leftImage, {
                             opacity: 1,
-                            x: 1000,
+                            x: -1200,
                             y: 0,
                         });
                     }
@@ -274,12 +272,12 @@ class ChronologyAnimations {
                     }
                 }
 
-                if (wrapperLeft) {
-                    const leftElements = wrapperLeft.querySelectorAll('*');
-                    if (leftElements.length) {
-                        gsap.set(leftElements, { ...variation.left.enterFrom });
-                    }
-                }
+                // if (wrapperLeft) {
+                //     const leftElements = wrapperLeft.querySelectorAll('*');
+                //     if (leftElements.length) {
+                //         gsap.set(leftElements, { ...variation.left.enterFrom });
+                //     }
+                // }
 
                 return; // 提前返回，跳过通用逻辑
             }
@@ -323,37 +321,35 @@ class ChronologyAnimations {
 
             // 特殊处理 chronology-qcsc 部分
             if (sectionId === 'chronology-qcsc') {
-                if (wrapperRight) {
-                    const rightText = wrapperRight.querySelector('.text');
-                    const rightImage = wrapperRight.querySelector('img') ||
-                        wrapperRight.querySelector('.foreground') ||
-                        wrapperRight.querySelector('div:not(.text)');
+                const leftText = wrapperLeft.querySelector('.text');
+                const rightImage = wrapperRight.querySelector('img') ||
+                    wrapperRight.querySelector('.foreground') ||
+                    wrapperRight.querySelector('div:not(.text)');
 
-                    // 设置图片的初始状态：从右侧视口外进入
-                    if (rightImage) {
-                        gsap.set(rightImage, {
-                            opacity: 1,
-                            x: 1200,  // 增加位移距离，确保完全在视口外
-                            y: 0
-                        });
-                    }
-
-                    // 设置文本的初始状态：从右侧视口外进入
-                    if (rightText) {
-                        gsap.set(rightText, {
-                            opacity: 1,
-                            x: 1200,  // 增加位移距离，确保完全在视口外
-                            y: 0
-                        });
-                    }
+                // 设置图片的初始状态：从右侧视口外进入
+                if (rightImage) {
+                    gsap.set(rightImage, {
+                        opacity: 1,
+                        x: 1200,  // 增加位移距离，确保完全在视口外
+                        y: 0
+                    });
                 }
 
-                if (wrapperLeft) {
-                    const leftElements = wrapperLeft.querySelectorAll('*');
-                    if (leftElements.length) {
-                        gsap.set(leftElements, { ...variation.left.enterFrom });
-                    }
+                // 设置文本的初始状态：从右侧视口外进入
+                if (leftText) {
+                    gsap.set(leftText, {
+                        opacity: 1,
+                        x: -1200,  // 增加位移距离，确保完全在视口外
+                        y: 0
+                    });
                 }
+
+                // if (wrapperLeft) {
+                //     const leftElements = wrapperLeft.querySelectorAll('*');
+                //     if (leftElements.length) {
+                //         gsap.set(leftElements, { ...variation.left.enterFrom });
+                //     }
+                // }
 
                 return; // 提前返回，跳过通用逻辑
             }
@@ -393,8 +389,7 @@ class ChronologyAnimations {
 
             // 特殊处理 chronology-mnhcz 部分
             if (sectionId === 'chronology-mnhcz') {
-                if (wrapperRight) {
-                    const rightText = wrapperRight.querySelector('.text');
+                    const leftText = wrapperLeft.querySelector('.text');
                     const rightImage = wrapperRight.querySelector('img') ||
                         wrapperRight.querySelector('.foreground') ||
                         wrapperRight.querySelector('div:not(.text)');
@@ -409,21 +404,20 @@ class ChronologyAnimations {
                     }
 
                     // 设置文本的初始状态：从右侧视口外进入
-                    if (rightText) {
-                        gsap.set(rightText, {
+                    if (leftText) {
+                        gsap.set(leftText, {
                             opacity: 1,
-                            x: 700,  // 从右侧视口外开始
+                            x: -1200,  // 从右侧视口外开始
                             y: 0
                         });
                     }
-                }
 
-                if (wrapperLeft) {
-                    const leftElements = wrapperLeft.querySelectorAll('*');
-                    if (leftElements.length) {
-                        gsap.set(leftElements, { ...variation.left.enterFrom });
-                    }
-                }
+                // if (wrapperLeft) {
+                //     const leftElements = wrapperLeft.querySelectorAll('*');
+                //     if (leftElements.length) {
+                //         gsap.set(leftElements, { ...variation.left.enterFrom });
+                //     }
+                // }
 
                 return; // 提前返回，跳过通用逻辑
             }
@@ -652,31 +646,31 @@ class ChronologyAnimations {
             const cdzTimeline = gsap.timeline({
                 delay: 0.2 // section滚动完成后延迟0.1秒再开始动画
             });
-
-            // 创建先后顺序的动画
             if (leftImage) {
                 cdzTimeline.fromTo(leftImage,
-                    { y: -900, opacity: 1 }, // 图片从更远上方视口外向下移动
+                    { y: 1000, opacity: 1 }, // 文本从更远下方视口外向上移动
                     {
                         y: 0, opacity: 1,
                         duration: 1.2,
-                        ease: "power2.out"
+                        ease: "power3.out"
                     },
-                    0 // 图片动画立即开始（已经有0.1秒全局延迟）
+                    0 // 图片动画开始后延迟开始文本动画
                 );
             }
-
+            // 创建先后顺序的动画
             if (leftText) {
                 cdzTimeline.fromTo(leftText,
-                    { y: 400, opacity: 1 }, // 文本从更远下方视口外向上移动
+                    { y: -1000, opacity: 1 }, // 图片从更远上方视口外向下移动
                     {
                         y: 0, opacity: 1,
                         duration: 0.9,
-                        ease: "power3.out"
+                        ease: "power2.out"
                     },
-                    0.5 // 图片动画开始后延迟开始文本动画
+                    0.2 // 图片动画立即开始（已经有0.1秒全局延迟）
                 );
             }
+
+
 
             // 处理右侧内容（如果有）
             if (wrapperRight) {
@@ -702,9 +696,9 @@ class ChronologyAnimations {
         // 针对 chronology-hl 部分的特殊处理
         if (sectionId === 'chronology-hl') {
             // 找到右侧包装内的图片和文本元素
-            const rightImage = wrapperRight?.querySelector('img') ||
-                wrapperRight?.querySelector('.foreground') ||
-                wrapperRight?.querySelector('div:not(.text)');
+            const leftImage = wrapperLeft?.querySelector('img') ||
+                wrapperLeft?.querySelector('.foreground') ||
+                wrapperLeft?.querySelector('div:not(.text)');
 
             const rightText = wrapperRight?.querySelector('.text');
 
@@ -714,8 +708,8 @@ class ChronologyAnimations {
             });
 
             // 分别处理图片和文本的动画，因为它们的旋转方向不同
-            if (rightImage) {
-                hlTimeline.to(rightImage, {
+            if (leftImage) {
+                hlTimeline.to(leftImage, {
                     x: 0,
                     y: 0,
                     duration: 1.2,
@@ -792,7 +786,7 @@ class ChronologyAnimations {
                 wrapperRight?.querySelector('.foreground') ||
                 wrapperRight?.querySelector('div:not(.text)');
 
-            const rightText = wrapperRight?.querySelector('.text');
+            const leftText = wrapperLeft?.querySelector('.text');
 
             // 创建动画时间轴，添加全局延迟0.1秒
             const qcscTimeline = gsap.timeline({
@@ -814,17 +808,17 @@ class ChronologyAnimations {
                 );
             }
 
-            if (rightText) {
+            if (leftText) {
                 // 文本从右侧向左移动，在图片动画完成后开始
-                qcscTimeline.fromTo(rightText,
-                    { x: 1200, opacity: 1, y: 0 },
+                qcscTimeline.fromTo(leftText,
+                    { x: -1200, opacity: 1, y: 0 },
                     {
                         x: 0,
                         opacity: 1,
                         duration: 1.0,
                         ease: "power2.out"
                     },
-                    0.8 // 文本动画在图片动画完成后开始
+                    0.7 // 文本动画在图片动画完成后开始
                 );
             }
 
@@ -883,7 +877,7 @@ class ChronologyAnimations {
                 wrapperRight?.querySelector('.foreground') ||
                 wrapperRight?.querySelector('div:not(.text)');
 
-            const rightText = wrapperRight?.querySelector('.text');
+            const leftText = wrapperLeft?.querySelector('.text');
 
             // 创建动画时间轴，添加全局延迟0.1秒
             const mnhczTimeline = gsap.timeline({
@@ -905,10 +899,10 @@ class ChronologyAnimations {
                 );
             }
 
-            if (rightText) {
+            if (leftText) {
                 // 文本从右侧向左移动，在图片动画完成后开始
-                mnhczTimeline.fromTo(rightText,
-                    { x: 700, opacity: 1, y: 0 },
+                mnhczTimeline.fromTo(leftText,
+                    { x: -1200, opacity: 1, y: 0 },
                     {
                         x: 0,
                         opacity: 1,
@@ -1186,18 +1180,18 @@ class ChronologyAnimations {
                 wrapperLeft?.querySelector('div:not(.text)');
 
             // 创建退场动画
-            if (leftText) {
-                timeline.to(leftText, {
-                    y: 500, // 文本向下方视口外退出
+            if (leftImage) {
+                timeline.to(leftImage, {
+                    y: 1000, // 文本向下方视口外退出
                     opacity: 1,
                     duration: this.config.duration.textExit, // 使用更快的文本退场速度
                     ease: "power3.in"
                 }, 0); // 文本立即开始退场
             }
 
-            if (leftImage) {
-                timeline.to(leftImage, {
-                    y: -900, // 图片向上方视口外退出
+            if (leftText) {
+                timeline.to(leftText, {
+                    y: -1000, // 图片向上方视口外退出
                     opacity: 1,
                     duration: this.config.duration.exit,
                     ease: "power2.in"
@@ -1222,17 +1216,15 @@ class ChronologyAnimations {
         // 针对 chronology-hl 部分的特殊处理
         if (sectionId === 'chronology-hl') {
             // 找到右侧包装内的图片和文本元素
-            const rightImage = wrapperRight?.querySelector('img') ||
-                wrapperRight?.querySelector('.foreground') ||
-                wrapperRight?.querySelector('div:not(.text)');
+            const leftImage = wrapperLeft?.querySelector('img')
 
             const rightText = wrapperRight?.querySelector('.text');
 
             // 分别处理图片和文本的退场动画，因为它们的旋转方向不同
-            if (rightImage) {
+            if (leftImage) {
                 // 图片退场：顺时针旋转回90度
-                timeline.to(rightImage, {
-                    x: 1000,
+                timeline.to(leftImage, {
+                    x: -1200,
                     y: 0,
                     duration: this.config.duration.exit,
                     ease: "power2.in"
@@ -1242,7 +1234,7 @@ class ChronologyAnimations {
             if (rightText) {
                 // 文本退场：逆时针旋转回-90度
                 timeline.to(rightText, {
-                    x: 1000,
+                    x: 1200,
                     y: 0,
                     duration: this.config.duration.exit,
                     ease: "power2.in"
@@ -1292,15 +1284,15 @@ class ChronologyAnimations {
                 wrapperRight?.querySelector('.foreground') ||
                 wrapperRight?.querySelector('div:not(.text)');
 
-            const rightText = wrapperRight?.querySelector('.text');
+            const leftText = wrapperLeft?.querySelector('.text');
 
             // 创建先后顺序的退场动画
             const timeline = gsap.timeline();
 
-            if (rightText) {
+            if (leftText) {
                 // 文本先退场：向右侧移动
-                timeline.to(rightText, {
-                    x: 1200,  // 增加位移距离，确保完全在视口外
+                timeline.to(leftText, {
+                    x: -1200,  // 增加位移距离，确保完全在视口外
                     opacity: 1,
                     duration: this.config.duration.textExit,
                     ease: "power2.in"
@@ -1362,15 +1354,15 @@ class ChronologyAnimations {
                 wrapperRight?.querySelector('.foreground') ||
                 wrapperRight?.querySelector('div:not(.text)');
 
-            const rightText = wrapperRight?.querySelector('.text');
+            const leftText = wrapperLeft?.querySelector('.text');
 
             // 创建先后顺序的退场动画
             const timeline = gsap.timeline();
 
-            if (rightText) {
+            if (leftText) {
                 // 文本先退场：向右侧移动
-                timeline.to(rightText, {
-                    x: 1200,  // 向右侧视口外移动
+                timeline.to(leftText, {
+                    x: -1200,  // 向右侧视口外移动
                     opacity: 1,
                     duration: this.config.duration.textExit,
                     ease: "power2.in"

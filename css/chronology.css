@@ -568,7 +568,8 @@
 #chronology-bydch .wrapper-left .text {
     font-size: 32px;
 }
-.bydch-text{
+
+.text-small {
     font-size: 20px;
     width: 90%;
 }
@@ -583,17 +584,17 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    justify-content: center;
     padding-bottom: 0;
 }
 
 #chronology-cdz .wrapper-left .text {
-    padding-top: 30px;
     font-size: 32px;
 }
 
 #chronology-cdz .cards {
-    width: 70%;
-    height: 60%;
+    width: 60%;
+    height: 50%;
     position: relative;
     padding-top: 20px;
 }
@@ -606,12 +607,23 @@
     position: absolute;
 }
 
+#chronology-cdz .wrapper-left .text {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 120px;
+}
+
 #chronology-cdz .wrapper-left .text p {
     width: 71%;
 }
 
 #chronology-hl .wrapper-left {
     width: 45%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
 }
 
 #chronology-hl .wrapper-right {
@@ -625,8 +637,10 @@
 }
 
 .louwman {
-    width: 50%;
+    width: 60%;
     height: 20%;
+    margin-top: 100px;
+    margin-left: 20px;
 }
 
 .louwman img {
@@ -639,11 +653,14 @@
     width: 100%;
     display: flex;
     justify-content: end;
+    align-items: end;
+    flex-direction: column;
+    font-size: 32px;
+
 }
 
 #chronology-hl .wrapper-right .text p {
-    font-size: 32px;
-    width: 90%;
+    width: 75%;
     font-family: var(--font-family-hanamin);
 }
 
@@ -673,6 +690,7 @@
 #chronology-dm .dm-img {
     width: 70%;
     height: 100%;
+    padding-right: 25%;
 }
 
 .dm-img img {
@@ -683,24 +701,37 @@
 
 #chronology-dm .text {
     position: absolute;
-    right: 50px;
+    right: 0;
     top: 50%;
     width: 37%;
 }
 
-#chronology-dm .text p {
+#chronology-dm .text {
     font-size: 32px;
+}
+
+#chronology-dm .text p {
     font-family: var(--font-family-hanamin);
 }
 
 #chronology-qcsc .wrapper-right {
-    width: 60%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: start;
     padding-top: 150px;
     gap: 30px;
 }
+
+#chronology-qcsc .wrapper-left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    margin-bottom: 120px;
+}
+
 
 #chronology-qcsc .sixt {
     width: 50%;
@@ -717,16 +748,25 @@
 #chronology-qcsc .text {
     font-size: 32px;
     font-family: var(--font-family-hanamin);
-    width: 81%;
+    width: 100%;
+}
+
+#chronology-qcsc .text p {
+    font-family: var(--font-family-hanamin);
+    width: 100%;
 }
 
 #chronology-sjb .wrapper-left {
-    width: 50%;
+    width: 70%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     padding-bottom: 0;
+}
+
+#chronology-sjb .text-small {
+    width: 95%;
 }
 
 #chronology-sjb .ozb-img {
@@ -765,6 +805,12 @@
     background-position: center -200px !important;
 }
 
+#chronology-mnhcz .wrapper-left {
+    width: 50%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
 
 #chronology-mnhcz .wrapper-right {
     width: 60%;
@@ -776,21 +822,27 @@
     gap: 50px;
 }
 
+#chronology-mnhcz .text p {
+    width: 100%;
+}
 
 #chronology-mnhcz .text {
     font-size: 32px;
     font-family: var(--font-family-hanamin);
-    width: 70%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: end;
+}
+
+#chronology-mnhcz .text-small {
+    width: 100%;
 }
 
 #chronology-mnhcz .s-plus {
     width: 79%;
     height: 55%;
     display: flex;
-
 }
 
 .s-plus img {
@@ -809,7 +861,7 @@
 }
 
 #chronology-xylqyys .xylgc-img {
-    width: 100%;
+    width: 83%;
     height: 45%;
 }
 
@@ -821,7 +873,7 @@
 
 #chronology-xylqyys .wrapper-right {
     padding-bottom: 0;
-    width: 60%;
+    width: 40%;
     display: flex;
     align-items: center;
 }
@@ -832,13 +884,17 @@
     margin-bottom: 45%;
 }
 
+#chronology-xylqyys .text-small {
+    width: 100%;
+}
+
 #chronology-omwyh .wrapper-left {
     padding-bottom: 0;
-    width: 50%;
+    width: 64%;
     height: 100%;
     display: flex;
     justify-content: end;
-    padding-right: 100px;
+    padding-right: 250px;
 }
 
 #chronology-omwyh .omldr-img {
@@ -863,11 +919,18 @@
 #chronology-omwyh .text {
     font-size: 32px;
     font-family: var(--font-family-hanamin);
+    text-align: right;
     width: 100%;
 }
 
+
+#chronology-omwyh .text-small {
+    width: 100%;
+    text-align: left;
+}
+
 #chronology-ydl .wrapper-left {
-    width: 40%;
+    width: 50%;
     height: 100%;
     padding-bottom: 0;
     display: flex;
@@ -877,6 +940,7 @@
 
 #chronology-ydl .text {
     font-size: 32px;
+    margin-top: 300px;
     font-family: var(--font-family-hanamin);
 }
 
@@ -893,10 +957,11 @@
     width: 100%;
     display: flex;
     justify-content: end;
+    margin-bottom: 120px;
 }
 
 .ydlsjt-img img {
-    width: 75%;
+    width: 90%;
     height: 100%;
     object-fit: contain;
 }
