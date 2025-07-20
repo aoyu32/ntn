@@ -570,8 +570,9 @@
 }
 
 .text-small {
-    font-size: 20px;
+    font-size: 22px;
     width: 90%;
+    font-family: 'Noto Sans SC', sans-serif;
 }
 
 #chronology-cdz {
@@ -656,7 +657,6 @@
     align-items: end;
     flex-direction: column;
     font-size: 32px;
-
 }
 
 #chronology-hl .wrapper-right .text p {
@@ -676,6 +676,10 @@
     padding-left: 0;
 }
 
+#chronology-dm .text-small {
+    font-family: 'Noto Sans SC', sans-serif;
+    width: 100%;
+}
 
 #chronology-dm .wrapper-right {
     width: 100%;
@@ -683,7 +687,7 @@
     display: flex;
     align-items: end;
     justify-content: center;
-    padding-bottom: 0;
+    padding: 0;
 
 }
 
@@ -702,7 +706,7 @@
 #chronology-dm .text {
     position: absolute;
     right: 0;
-    top: 50%;
+    top: 40%;
     width: 37%;
 }
 
@@ -766,7 +770,8 @@
 }
 
 #chronology-sjb .text-small {
-    width: 95%;
+    font-family: 'Noto Sans SC', sans-serif;
+    width: 100%;
 }
 
 #chronology-sjb .ozb-img {
@@ -775,7 +780,8 @@
     height: 70%;
     display: flex;
     justify-content: center;
-    padding-right: 120px;
+    margin-right: 300px;
+
 }
 
 #chronology-sjb .ozb-img img {
@@ -795,6 +801,8 @@
 #chronology-sjb .text {
     font-size: 32px;
     font-family: var(--font-family-hanamin);
+    margin-top: 150px;
+    margin-left: 20px;
 }
 
 #chronology-mnhcz {
@@ -836,6 +844,7 @@
 }
 
 #chronology-mnhcz .text-small {
+    font-family: 'Noto Sans SC', sans-serif;
     width: 100%;
 }
 
@@ -885,6 +894,7 @@
 }
 
 #chronology-xylqyys .text-small {
+    font-family: 'Noto Sans SC', sans-serif;
     width: 100%;
 }
 
@@ -925,6 +935,7 @@
 
 
 #chronology-omwyh .text-small {
+    font-family: 'Noto Sans SC', sans-serif;
     width: 100%;
     text-align: left;
 }
