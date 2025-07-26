@@ -294,7 +294,7 @@ class ChronologyAnimations {
                     if (rightImage) {
                         gsap.set(rightImage, {
                             opacity: 1,
-                            y: 1000,  // 更大的y轴偏移，确保完全在视口外
+                            y: 1200,  // 更大的y轴偏移，确保完全在视口外
                             x: 0
                         });
                     }
@@ -303,7 +303,7 @@ class ChronologyAnimations {
                     if (rightText) {
                         gsap.set(rightText, {
                             opacity: 1,
-                            x: 1000,  // 更大的x轴偏移，确保完全在视口外
+                            x: 1200,  // 更大的x轴偏移，确保完全在视口外
                             y: 0
                         });
                     }
@@ -365,7 +365,7 @@ class ChronologyAnimations {
                     if (leftImage) {
                         gsap.set(leftImage, {
                             opacity: 1,
-                            x: -1400,
+                            x: -1500,
                             y: 0,  // 初始状态为很小的尺寸
                             transformOrigin: "center center" // 从中心点缩放
                         });
@@ -379,7 +379,7 @@ class ChronologyAnimations {
                     if (rightText) {
                         gsap.set(rightText, {
                             opacity: 1,
-                            x: 1400,  // 从右侧视口外开始
+                            x: 1500,  // 从右侧视口外开始
                             y: 0
                         });
                     }
@@ -750,7 +750,7 @@ class ChronologyAnimations {
             if (rightImage) {
                 // 图片从下方向上移动
                 dmTimeline.fromTo(rightImage,
-                    { y: 1000, opacity: 1, x: 0 },
+                    { y: 1200, opacity: 1, x: 0 },
                     {
                         y: 0,
                         opacity: 1,
@@ -764,7 +764,7 @@ class ChronologyAnimations {
             if (rightText) {
                 // 文本从右侧向左移动
                 dmTimeline.fromTo(rightText,
-                    { x: 800, opacity: 1, y: 0 },
+                    { x: 1200, opacity: 1, y: 0 },
                     {
                         x: 0,
                         opacity: 1,
@@ -856,7 +856,7 @@ class ChronologyAnimations {
             if (rightText) {
                 // 文本从右侧向左移动，在图片动画完成后开始
                 sjbTimeline.fromTo(rightText,
-                    { x: 1200, opacity: 1, y: 0 },
+                    { x: 1500, opacity: 1, y: 0 },
                     {
                         x: 0,
                         opacity: 1,
@@ -1259,7 +1259,7 @@ class ChronologyAnimations {
             if (rightText) {
                 // 文本先退场：向右侧移动
                 timeline.to(rightText, {
-                    x: 1000,  // 更大的x轴偏移，确保完全在视口外
+                    x: 1200,  // 更大的x轴偏移，确保完全在视口外
                     opacity: 1,
                     duration: this.config.duration.textExit,
                     ease: "power2.in"
@@ -1329,7 +1329,7 @@ class ChronologyAnimations {
             if (rightText) {
                 // 文本先退场：向右侧移动
                 timeline.to(rightText, {
-                    x: 1400,  // 向右侧视口外移动
+                    x: 1500,  // 向右侧视口外移动
                     opacity: 1,
                     duration: this.config.duration.textExit,
                     ease: "power2.in"
@@ -1339,7 +1339,7 @@ class ChronologyAnimations {
             if (leftImage) {
                 // 图片退场：缩小到消失，调整为更明显的效果
                 timeline.to(leftImage, {
-                    x: -1400,  // 缩小到更小的尺寸，使效果更明显
+                    x: -1500,  // 缩小到更小的尺寸，使效果更明显
                     y:0,
                     opacity: 1,  // 保持完全不透明
                     duration: 1.0,  // 增加动画时间，让缩放过程更明显

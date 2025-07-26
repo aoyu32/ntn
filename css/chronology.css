@@ -674,6 +674,7 @@
     flex-direction: column;
     justify-content: start;
     padding-top: 9.375rem;
+    padding-right: 4.375rem;
     gap: 1.875rem;
 }
 
@@ -757,6 +758,7 @@
 
 #chronology-mnhcz .parallax-bg {
     background-position: center -12.5rem !important;
+    
 }
 
 #chronology-mnhcz .wrapper-left {
