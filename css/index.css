@@ -26,47 +26,24 @@
 
 .logo-name {
     width: 100%;
-    height: 150px;
+    height: 15vh;
     display: flex;
     align-items: center;
     color: var(--font-color);
-    font-size: 36px;
+    font-size: 2.25rem;
     will-change: transform, opacity;
 }
 
 .logo-name a {
     display: block;
     position: relative;
-    padding: 5px 0;
+    padding: 0.5rem 0;
     margin-left: 30%;
 }
 
-/* 移除Logo的下划线效果 */
-/* 
-.logo-name a::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 2px;
-    background-color: var(--font-color);
-    transition: width 0.3s ease;
-}
-
-.logo-name a:hover::after {
-    width: 50%;
-}
-
-.logo-name a.active::after {
-    width: 50%;
-}
-*/
-
 .nav-bottom {
     width: 100%;
-    height: 150px;
+    height: 15vh;
     opacity: 0;
 }
 
@@ -78,13 +55,13 @@
 
 .nav-list ul {
     width: 100%;
-    font-size: 30px;
+    font-size: 1.875vw;
     color: var(--font-color);
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 90px 0;
+    padding: 9vh 0;
 }
 
 .nav-list ul li {
@@ -99,19 +76,19 @@
 
 .nav-list ul li a {
     position: relative;
-    padding: 5px 0;
+    padding: 0.5rem 0;
     margin-left: 30%;
-    font-size: 26px;
+    font-size: 1.625rem;
 }
 
 /* 导航项hover效果 - 下划线 */
 .nav-list ul li a::after {
     content: '';
     position: absolute;
-    bottom: -2px;
+    bottom: -0.125rem;
     left: 0;
     width: 0;
-    height: 2px;
+    height: 0.125rem;
     background-color: var(--font-color);
     transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
@@ -136,17 +113,17 @@
 
 .slither {
     position: fixed;
-    right: 50px;
-    bottom: 10px;
+    right: 3.125rem;
+    bottom: 0.625rem;
     z-index: 10000;
     will-change: transform, opacity;
 }
 
 .slither span {
     width: 100%;
-    font-size: 24px;
+    font-size: 1.5rem;
     color: var(--font-color);
-    margin-bottom: 50px;
+    margin-bottom: 3.125rem;
     display: block;
 }
 
@@ -167,7 +144,6 @@ section {
     top: 0;
     left: 0;
     box-sizing: border-box;
-    /* padding-left: var(--nav-width); */
     will-change: transform, opacity;
     overflow: hidden;
     -ms-overflow-style: none;
@@ -215,63 +191,8 @@ section {
     z-index: -1;
     transform-origin: center center;
     pointer-events: none;
+    filter: brightness(70%);
 }
-
-/* #home .parallax-bg {
-    background-image: var(--bg-index);
-}
-
-#circumstances .parallax-bg {
-    background-color: rgba(0, 0, 0, 1);
-}
-
-#chronology-bydch .parallax-bg {
-    background-image: var(--bg-chronology-bydch);
-}
-
-#chronology-cdz .parallax-bg {
-    background-image: var(--bg-chronology-cdz);
-}
-
-#chronology-hl .parallax-bg {
-    background-image: var(--bg-chronology-hl);
-}
-
-#chronology-dm .parallax-bg {
-    background-image: var(--bg-chronology-dm);
-}
-
-#chronology-qcsc .parallax-bg {
-    background-image: var(--bg-chronology-qcsc);
-}
-
-#chronology-sjb .parallax-bg {
-    background-image: var(--bg-chronology-sjb);
-}
-
-#chronology-mnhcz .parallax-bg {
-    background-image: var(--bg-chronology-mnhcz);
-}
-
-#chronology-xylqyys .parallax-bg {
-    background-image: var(--bg-chronology-xylqyys);
-}
-
-#chronology-omwyh .parallax-bg {
-    background-image: var(--bg-chronology-omwyh);
-}
-
-#chronology-ydl .parallax-bg {
-    background-image: var(--bg-chronology-ydl);
-}
-
-#accounting .parallax-bg {
-    background-image: var(--bg-accounting);
-}
-
-#compiled .parallax-bg {
-    background-image: var(--bg-compiled);
-} */
 
 .parallax-bg-container,
 .parallax-bg {
@@ -288,5 +209,5 @@ section {
 .page-progress-indicator .progress-dot:hover {
     transform: scale(1.5);
     background-color: #fff !important;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 0.625rem rgba(255, 255, 255, 0.7);
 }

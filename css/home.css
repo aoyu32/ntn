@@ -1,21 +1,21 @@
 #home .content-wrapper {
-    width: 70%;
+    width: 70%; /* 保持百分比布局 */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
 
 #home .ch-text {
-    margin-top: 40px;
+    margin-top: 2.5rem; /* 40px → 2.5rem (基于16px基准) */
 }
 
 .en-text p {
-    font-size: 36px;
-    letter-spacing: 3px;
+    font-size: clamp(1.5rem, 3vw, 2.25rem); /* 36px → 2.25rem (动态范围 24px~36px) */
+    letter-spacing: 0.1em; /* 3px → 相对字号的0.1倍 */
     font-family: var(--font-family-quciksand);
 }
 
 .ch-text p {
     font-family: var(--font-family-harmonyos);
-    font-size: 34px;
+    font-size: clamp(1.4rem, 2.8vw, 2.125rem); /* 34px → 2.125rem (动态范围 22.4px~34px) */
 }

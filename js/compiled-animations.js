@@ -17,7 +17,7 @@ class CompiledAnimations {
     // 设置动画参数
     this.params = {
       duration: 4,        // 动画持续时间（秒）
-      startY: '120%',       // 开始位置（视口下方，使用百分比确保在视口外）
+      startY: '200%',       // 开始位置（视口下方，使用百分比确保在视口外）
       initialDelay: 1,    // 初始延迟时间（秒）
       ease: "none"    // 缓动函数
     };

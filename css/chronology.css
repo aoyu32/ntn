@@ -1,6 +1,6 @@
 .pull-down {
     width: 100%;
-    padding: 20px 5px;
+    padding: 1.25rem 0.3125rem;
     position: absolute;
     display: flex;
     justify-content: space-between;
@@ -32,7 +32,6 @@
     height: 100%;
 }
 
-/* 添加下拉状态下的背景效果，即使鼠标离开也保持 */
 .pull-down.pulling::before {
     height: 100%;
 }
@@ -56,22 +55,22 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: 0.3125rem;
     transition: gap 0.3s ease, transform 0.3s ease;
 }
 
 .pull-down-icon .dot span {
     display: inline-block;
-    width: 2px;
-    height: 2px;
+    width: 0.125rem;
+    height: 0.125rem;
     background-color: var(--font-color);
     border-radius: 50%;
     transition: height 0.3s ease, width 0.3s ease;
 }
 
 .pull-down-icon .icon {
-    width: 20px;
-    height: 20px;
+    width: 1.25rem;
+    height: 1.25rem;
     transition: transform 0.3s ease;
     transform-origin: center;
     will-change: transform;
@@ -81,64 +80,51 @@
     color: var(--font-color);
 }
 
-/* 拉动状态 */
 .pull-down.pulling {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.2);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     background-color: rgba(255, 255, 255, 0.05);
-    /* 添加背景色，确保在拖动时有视觉反馈 */
-    padding-bottom: 25px;
-    /* 增加底部内边距，产生拉伸效果 */
+    padding-bottom: 1.5625rem;
 }
 
 .pull-down.pulling .pull-down-icon .icon {
-    transform: translateY(5px);
+    transform: translateY(0.3125rem);
 }
 
 .pull-down.pulling .pull-down-icon .dot {
-    gap: 7px;
-    /* 增加点之间的间距 */
-    transform: translateY(5px);
+    gap: 0.4375rem;
+    transform: translateY(0.3125rem);
 }
 
 .pull-down.pulling .pull-down-icon .dot span {
-    height: 3px;
-    /* 增加点的高度 */
-    width: 3px;
-    /* 增加点的宽度 */
+    height: 0.1875rem;
+    width: 0.1875rem;
 }
 
-/* 可释放状态 */
 .pull-down.ready-to-release {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.3);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     background-color: rgba(255, 255, 255, 0.1);
-    /* 增强背景色，提供更明显的视觉反馈 */
-    padding-bottom: 30px;
-    /* 进一步增加底部内边距，产生更明显的拉伸效果 */
+    padding-bottom: 1.875rem;
 }
 
 .pull-down.ready-to-release .pull-down-icon .icon {
-    transform: translateY(10px);
+    transform: translateY(0.625rem);
 }
 
 .pull-down.ready-to-release .pull-down-icon .dot {
-    gap: 9px;
-    /* 进一步增加点之间的间距 */
-    transform: translateY(10px);
+    gap: 0.5625rem;
+    transform: translateY(0.625rem);
 }
 
 .pull-down.ready-to-release .pull-down-icon .dot span {
-    height: 4px;
-    /* 进一步增加点的高度 */
-    width: 4px;
-    /* 进一步增加点的宽度 */
+    height: 0.25rem;
+    width: 0.25rem;
 }
 
-/* 活动状态 */
 .pull-down.active {
     background-color: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.2);
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
@@ -149,18 +135,18 @@
 }
 
 .date {
-    font-size: 36px;
+    font-size: 2.25rem;
     font-family: var(--font-family-quciksand);
     color: var(--font-color);
-    letter-spacing: 10px;
+    letter-spacing: 0.625rem;
     vertical-align: top;
 }
 
 .button {
-    font-size: 20px;
+    font-size: 1.25rem;
     color: var(--font-color);
-    letter-spacing: 4px;
-    padding: 6px;
+    letter-spacing: 0.25rem;
+    padding: 0.375rem;
     font-family: var(--font-family-hanamin);
     cursor: pointer;
     position: relative;
@@ -180,7 +166,7 @@
     height: 100%;
     display: flex;
     align-items: end;
-    padding-bottom: 150px;
+    padding-bottom: 9.375rem;
 }
 
 .chronology .warpper-left .text {
@@ -198,13 +184,12 @@
     display: flex;
     align-items: end;
     justify-content: end;
-    padding: 0 50px 70px 0;
+    padding: 0 3.125rem 4.375rem 0;
 }
-
 
 .chronology .wrapper-right .foreground {
     width: 55%;
-    margin-bottom: 60px;
+    margin-bottom: 3.75rem;
     display: flex;
     align-items: center;
 }
@@ -222,10 +207,10 @@
     top: 0;
     left: 0;
     overflow: hidden;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(0.3125rem);
     will-change: height;
     height: 0;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.3);
     transform-origin: top center;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     pointer-events: auto;
@@ -239,23 +224,22 @@
     display: flex;
     flex-direction: column;
     color: var(--font-color);
-    font-size: 26px;
-    padding: 20px 200px 76px 200px;
-    margin-bottom: 76px;
+    font-size: 1.625rem;
+    padding: 1.25rem 12.5rem 4.75rem 12.5rem;
+    margin-bottom: 4.75rem;
     opacity: 0.9;
-    transform: translateY(-10px);
+    transform: translateY(-0.625rem);
     transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.4s ease;
     font-family: var(--font-family-harmonyos);
     flex: 1;
     overflow-y: auto;
-    /* 添加垂直滚动条 */
 }
 
 .policy {
     width: 100%;
     height: 100%;
-    padding-left: 270px;
-    padding-right: 200px;
+    padding-left: 16.875rem;
+    padding-right: 12.5rem;
     padding-top: 9%;
     display: flex;
     align-items: center;
@@ -264,11 +248,11 @@
 
 .policy-title {
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 3.125rem;
 }
 
 .policy-title h1 {
-    font-size: 36px;
+    font-size: 2.25rem;
     font-weight: 100;
     color: var(--font-color);
     font-family: var(--font-family-hanamin);
@@ -276,34 +260,33 @@
 
 .policy-title p {
     color: var(--font-color-light);
-    font-size: 20px;
+    font-size: 1.25rem;
     font-family: var(--font-family-harmonyos);
 }
-
 
 .policy-wrapper {
     width: 100%;
     display: flex;
-    gap: 120px;
+    gap: 7.5rem;
 }
 
 .policy-content-item {
     width: 100%;
-    height: 120px;
+    height: 7.5rem;
 }
 
 .policy-wrapper h3 {
     color: var(--font-color);
     font-weight: 100;
-    font-size: 26px;
+    font-size: 1.625rem;
 }
 
 .policy-left {
     width: 64%;
     display: flex;
     flex-direction: column;
-    font-size: 15px;
-    gap: 20px;
+    font-size: 0.9375rem;
+    gap: 1.25rem;
     color: var(--font-color-light);
 }
 
@@ -311,47 +294,29 @@
     width: 64%;
     display: flex;
     flex-direction: column;
-    font-size: 15px;
-    gap: 20px;
+    font-size: 0.9375rem;
+    gap: 1.25rem;
     color: var(--font-color-light);
 }
 
-
 .pull-down-date {
-    font-size: 36px;
+    font-size: 2.25rem;
     font-family: var(--font-family-quciksand);
     color: var(--font-color);
-    letter-spacing: 10px;
+    letter-spacing: 0.625rem;
     position: absolute;
-    right: 5px;
-    top: 20px;
+    right: 0.3125rem;
+    top: 1.25rem;
     vertical-align: top;
 }
 
-
-/* 自定义滚动条样式 */
 .pull-down-content ul::-webkit-scrollbar {
-    width: 6px;
-    /* 垂直滚动条宽度 */
+    width: 0.375rem;
 }
-
-/* .pull-down-content ul::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.1);
-    border-radius: 3px;
-}
-
-.pull-down-content ul::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 3px;
-}
-
-.pull-down-content ul::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(255, 255, 255, 0.5);
-} */
 
 .pull-down-content[style*="height: 0"] ul {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(-1.25rem);
 }
 
 .pull-down-content:not([style*="height: 0"]) ul {
@@ -361,19 +326,19 @@
 
 .pull-down-content ul li {
     width: 100%;
-    padding: 20px 0;
+    padding: 1.25rem 0;
     line-height: 1.6;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     transition: opacity 0.3s ease, transform 0.3s ease;
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(0.625rem);
 }
 
 .pull-down-content ul a {
     width: 100%;
-    padding: 20px 0;
+    padding: 1.25rem 0;
     line-height: 1.6;
-    font-size: 20px;
+    font-size: 1.25rem;
     cursor: pointer;
 }
 
@@ -387,10 +352,9 @@
     background-color: rgba(255, 255, 255, 0.15);
 }
 
-
 .pull-down-content ul a:hover {
     background-color: rgba(255, 183, 77, 0.2);
-    transform: translateY(-2px);
+    transform: translateY(-0.125rem);
 }
 
 .pull-down-content ul li:nth-child(1) {
@@ -419,13 +383,12 @@
 
 .pull-down-content ul li:last-child {
     border-bottom: none;
-    padding-bottom: 30px;
+    padding-bottom: 1.875rem;
 }
 
-/* Pull-up区域样式 */
 .pull-up {
     width: 100%;
-    padding: 20px 50px;
+    padding: 1.25rem 3.125rem;
     position: absolute;
     display: flex;
     justify-content: center;
@@ -459,7 +422,6 @@
     height: 100%;
 }
 
-/* 添加上拉状态下的背景效果，即使鼠标离开也保持 */
 .pull-up.pulling::before {
     height: 100%;
 }
@@ -481,22 +443,22 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: 0.3125rem;
     transition: gap 0.3s ease, transform 0.3s ease;
 }
 
 .pull-up-icon .dot span {
     display: inline-block;
-    width: 2px;
-    height: 2px;
+    width: 0.125rem;
+    height: 0.125rem;
     background-color: var(--font-color);
     border-radius: 50%;
     transition: height 0.3s ease, width 0.3s ease;
 }
 
 .pull-up-icon .icon {
-    width: 20px;
-    height: 20px;
+    width: 1.25rem;
+    height: 1.25rem;
     transition: transform 0.3s ease;
     transform-origin: center;
     will-change: transform;
@@ -506,71 +468,60 @@
     color: var(--font-color);
 }
 
-/* 拉动状态 */
 .pull-up.pulling {
-    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 -0.3125rem 0.9375rem rgba(0, 0, 0, 0.2);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     background-color: rgba(255, 255, 255, 0.05);
-    padding-top: 25px;
-    /* 增加顶部内边距，产生拉伸效果 */
+    padding-top: 1.5625rem;
 }
 
 .pull-up.pulling .pull-up-icon .icon {
-    transform: translateY(-5px);
+    transform: translateY(-0.3125rem);
 }
 
 .pull-up.pulling .pull-up-icon .dot {
-    gap: 7px;
-    /* 增加点之间的间距 */
-    transform: translateY(-5px);
+    gap: 0.4375rem;
+    transform: translateY(-0.3125rem);
 }
 
 .pull-up.pulling .pull-up-icon .dot span {
-    height: 3px;
-    /* 增加点的高度 */
-    width: 3px;
-    /* 增加点的宽度 */
+    height: 0.1875rem;
+    width: 0.1875rem;
 }
 
-/* 可释放状态 */
 .pull-up.ready-to-release {
-    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 -0.3125rem 0.9375rem rgba(0, 0, 0, 0.3);
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     background-color: rgba(255, 255, 255, 0.1);
-    padding-top: 30px;
-    /* 进一步增加顶部内边距，产生更明显的拉伸效果 */
+    padding-top: 1.875rem;
 }
 
 .pull-up.ready-to-release .pull-up-icon .icon {
-    transform: translateY(-10px);
+    transform: translateY(-0.625rem);
 }
 
 .pull-up.ready-to-release .pull-up-icon .dot {
-    gap: 9px;
-    /* 进一步增加点之间的间距 */
-    transform: translateY(-10px);
+    gap: 0.5625rem;
+    transform: translateY(-0.625rem);
 }
 
 .pull-up.ready-to-release .pull-up-icon .dot span {
-    height: 4px;
-    /* 进一步增加点的高度 */
-    width: 4px;
-    /* 进一步增加点的宽度 */
+    height: 0.25rem;
+    width: 0.25rem;
 }
 
-/* 活动状态 */
 .pull-up.active {
     background-color: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 -0.3125rem 0.9375rem rgba(0, 0, 0, 0.2);
     border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 #chronology-bydch .wrapper-left .text {
-    font-size: 32px;
+    font-size: 2rem;
 }
 
 .text-small {
-    font-size: 22px;
+    font-size: 1.375rem;
     width: 90%;
     font-family: 'Noto Sans SC', sans-serif;
 }
@@ -590,16 +541,15 @@
 }
 
 #chronology-cdz .wrapper-left .text {
-    font-size: 32px;
+    font-size: 2rem;
 }
 
 #chronology-cdz .cards {
     width: 60%;
     height: 50%;
     position: relative;
-    padding-top: 20px;
+    padding-top: 3%;
 }
-
 
 #chronology-cdz .cards .card-item img {
     width: 100%;
@@ -612,7 +562,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding-top: 120px;
+    padding-top: 7.5rem;
 }
 
 #chronology-cdz .wrapper-left .text p {
@@ -628,7 +578,7 @@
 }
 
 #chronology-hl .wrapper-right {
-    padding-top: 120px;
+    padding-top: 7.5rem;
     width: 55%;
     height: 100%;
     display: flex;
@@ -640,8 +590,8 @@
 .louwman {
     width: 60%;
     height: 20%;
-    margin-top: 100px;
-    margin-left: 20px;
+    margin-top: 6.25rem;
+    margin-left: 1.25rem;
 }
 
 .louwman img {
@@ -656,7 +606,7 @@
     justify-content: end;
     align-items: end;
     flex-direction: column;
-    font-size: 32px;
+    font-size: 2rem;
 }
 
 #chronology-hl .wrapper-right .text p {
@@ -688,7 +638,6 @@
     align-items: end;
     justify-content: center;
     padding: 0;
-
 }
 
 #chronology-dm .dm-img {
@@ -707,11 +656,12 @@
     position: absolute;
     right: 0;
     top: 40%;
+    right: 3.125rem;
     width: 37%;
 }
 
 #chronology-dm .text {
-    font-size: 32px;
+    font-size: 2rem;
 }
 
 #chronology-dm .text p {
@@ -723,8 +673,8 @@
     display: flex;
     flex-direction: column;
     justify-content: start;
-    padding-top: 150px;
-    gap: 30px;
+    padding-top: 9.375rem;
+    gap: 1.875rem;
 }
 
 #chronology-qcsc .wrapper-left {
@@ -733,9 +683,8 @@
     flex-direction: column;
     justify-content: end;
     align-items: center;
-    margin-bottom: 120px;
+    margin-bottom: 7.5rem;
 }
-
 
 #chronology-qcsc .sixt {
     width: 50%;
@@ -746,11 +695,11 @@
 #chronology-qcsc .sixt img {
     width: 100%;
     height: 100%;
-    object-fit: co;
+    object-fit: contain;
 }
 
 #chronology-qcsc .text {
-    font-size: 32px;
+    font-size: 2rem;
     font-family: var(--font-family-hanamin);
     width: 100%;
 }
@@ -761,13 +710,14 @@
 }
 
 #chronology-sjb .wrapper-left {
-    width: 70%;
+    width: 30%;
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: end;
     padding-bottom: 0;
 }
+
 
 #chronology-sjb .text-small {
     font-family: 'Noto Sans SC', sans-serif;
@@ -775,34 +725,30 @@
 }
 
 #chronology-sjb .ozb-img {
-
-    width: 70%;
-    height: 70%;
+    width: 30%;
+    height: 50%;
     display: flex;
-    justify-content: center;
-    margin-right: 300px;
-
 }
 
 #chronology-sjb .ozb-img img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 #chronology-sjb .wrapper-right {
-    width: 60%;
+    width: 100%;
     padding-bottom: 0;
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: start;
+    margin-left: 3.125rem;
 }
 
 #chronology-sjb .text {
-    font-size: 32px;
+    font-size: 2rem;
     font-family: var(--font-family-hanamin);
-    margin-top: 150px;
-    margin-left: 20px;
+
 }
 
 #chronology-mnhcz {
@@ -810,7 +756,7 @@
 }
 
 #chronology-mnhcz .parallax-bg {
-    background-position: center -200px !important;
+    background-position: center -12.5rem !important;
 }
 
 #chronology-mnhcz .wrapper-left {
@@ -826,8 +772,8 @@
     padding-bottom: 0;
     display: flex;
     flex-direction: column;
-    padding-top: 100px;
-    gap: 50px;
+    padding-top: 6.25rem;
+    gap: 3.125rem;
 }
 
 #chronology-mnhcz .text p {
@@ -835,7 +781,7 @@
 }
 
 #chronology-mnhcz .text {
-    font-size: 32px;
+    font-size: 2rem;
     font-family: var(--font-family-hanamin);
     width: 100%;
     display: flex;
@@ -888,7 +834,7 @@
 }
 
 #chronology-xylqyys .text {
-    font-size: 32px;
+    font-size: 2rem;
     font-family: var(--font-family-hanamin);
     margin-bottom: 45%;
 }
@@ -904,7 +850,7 @@
     height: 100%;
     display: flex;
     justify-content: end;
-    padding-right: 250px;
+    padding-right: 15.625rem;
 }
 
 #chronology-omwyh .omldr-img {
@@ -927,12 +873,11 @@
 }
 
 #chronology-omwyh .text {
-    font-size: 32px;
+    font-size: 2rem;
     font-family: var(--font-family-hanamin);
-    text-align: right;
+    text-align: left;
     width: 100%;
 }
-
 
 #chronology-omwyh .text-small {
     font-family: 'Noto Sans SC', sans-serif;
@@ -950,8 +895,8 @@
 }
 
 #chronology-ydl .text {
-    font-size: 32px;
-    margin-top: 300px;
+    font-size: 2rem;
+    margin-top: 18.75rem;
     font-family: var(--font-family-hanamin);
 }
 
@@ -968,7 +913,7 @@
     width: 100%;
     display: flex;
     justify-content: end;
-    margin-bottom: 120px;
+    margin-bottom: 7.5rem;
 }
 
 .ydlsjt-img img {

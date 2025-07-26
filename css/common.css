@@ -18,6 +18,10 @@ html {
     overflow: hidden;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    /* 设置基础字体大小，用于rem计算 */
+    font-size: 16px;
+    /* 或者使用响应式基础字体大小 */
+    /* font-size: calc(16px + 0.2vw); */
 }
 
 body {
@@ -56,7 +60,8 @@ li {
     --font-family-hanamin: "HanaMinA", serif;
     --font-family-quciksand: 'Quicksand', sans-serif;
     --font-family-harmonyos: 'HarmonyOS Sans SC', sans-serif;
-    --nav-width: 250px;
+    /* 将固定宽度改为基于视口的响应式单位 */
+    --nav-width: 15.625rem; /* 250px → 15.625rem */
     --bg-index: url('../assets/imgs/background/1-初始页.jpg');
     --bg-circumstances: url('../assets/imgs/foreground/2-情境.jpg');
     --bg-chronology-bydch: url('../assets/imgs/background/3-比亚迪出海.jpg');

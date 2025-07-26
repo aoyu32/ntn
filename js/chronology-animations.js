@@ -365,7 +365,8 @@ class ChronologyAnimations {
                     if (leftImage) {
                         gsap.set(leftImage, {
                             opacity: 1,
-                            scale: 0,  // 初始状态为很小的尺寸
+                            x: -1400,
+                            y: 0,  // 初始状态为很小的尺寸
                             transformOrigin: "center center" // 从中心点缩放
                         });
                     }
@@ -378,7 +379,7 @@ class ChronologyAnimations {
                     if (rightText) {
                         gsap.set(rightText, {
                             opacity: 1,
-                            x: 700,  // 从右侧视口外开始
+                            x: 1400,  // 从右侧视口外开始
                             y: 0
                         });
                     }
@@ -389,28 +390,28 @@ class ChronologyAnimations {
 
             // 特殊处理 chronology-mnhcz 部分
             if (sectionId === 'chronology-mnhcz') {
-                    const leftText = wrapperLeft.querySelector('.text');
-                    const rightImage = wrapperRight.querySelector('img') ||
-                        wrapperRight.querySelector('.foreground') ||
-                        wrapperRight.querySelector('div:not(.text)');
+                const leftText = wrapperLeft.querySelector('.text');
+                const rightImage = wrapperRight.querySelector('img') ||
+                    wrapperRight.querySelector('.foreground') ||
+                    wrapperRight.querySelector('div:not(.text)');
 
-                    // 设置图片的初始状态：从右侧视口外进入
-                    if (rightImage) {
-                        gsap.set(rightImage, {
-                            opacity: 1,
-                            x: 1200,  // 从右侧视口外开始
-                            y: 0
-                        });
-                    }
+                // 设置图片的初始状态：从右侧视口外进入
+                if (rightImage) {
+                    gsap.set(rightImage, {
+                        opacity: 1,
+                        x: 1200,  // 从右侧视口外开始
+                        y: 0
+                    });
+                }
 
-                    // 设置文本的初始状态：从右侧视口外进入
-                    if (leftText) {
-                        gsap.set(leftText, {
-                            opacity: 1,
-                            x: -1200,  // 从右侧视口外开始
-                            y: 0
-                        });
-                    }
+                // 设置文本的初始状态：从右侧视口外进入
+                if (leftText) {
+                    gsap.set(leftText, {
+                        opacity: 1,
+                        x: -1200,  // 从右侧视口外开始
+                        y: 0
+                    });
+                }
 
                 // if (wrapperLeft) {
                 //     const leftElements = wrapperLeft.querySelectorAll('*');
@@ -845,7 +846,8 @@ class ChronologyAnimations {
             if (leftImage) {
                 // 图片从小到大缩放，去掉弹性效果
                 sjbTimeline.to(leftImage, {
-                    scale: 1,  // 缩放到原始大小
+                    x: 0,  // 缩放到原始大小
+                    y: 0,
                     duration: 1.2,
                     ease: "power2.out" // 使用普通缓动效果，没有弹性抖动
                 }, 0); // 图片动画立即开始（已经有0.2秒全局延迟）
@@ -854,7 +856,7 @@ class ChronologyAnimations {
             if (rightText) {
                 // 文本从右侧向左移动，在图片动画完成后开始
                 sjbTimeline.fromTo(rightText,
-                    { x: 700, opacity: 1, y: 0 },
+                    { x: 1200, opacity: 1, y: 0 },
                     {
                         x: 0,
                         opacity: 1,
@@ -1327,7 +1329,7 @@ class ChronologyAnimations {
             if (rightText) {
                 // 文本先退场：向右侧移动
                 timeline.to(rightText, {
-                    x: 1200,  // 向右侧视口外移动
+                    x: 1400,  // 向右侧视口外移动
                     opacity: 1,
                     duration: this.config.duration.textExit,
                     ease: "power2.in"
@@ -1337,7 +1339,8 @@ class ChronologyAnimations {
             if (leftImage) {
                 // 图片退场：缩小到消失，调整为更明显的效果
                 timeline.to(leftImage, {
-                    scale: 0,  // 缩小到更小的尺寸，使效果更明显
+                    x: -1400,  // 缩小到更小的尺寸，使效果更明显
+                    y:0,
                     opacity: 1,  // 保持完全不透明
                     duration: 1.0,  // 增加动画时间，让缩放过程更明显
                     ease: "power2.in"  // 使用普通缓动效果，没有弹性抖动
